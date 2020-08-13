@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>bbots-web</artifactId>
+        <groupId>org.benzenebots</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>bbots-web-frontend</artifactId>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.33.0</version>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>benzenebots/bbots-web-frontend:${project.version}</name>
+                            <build>
+                                <dockerFile>${project.basedir}/Dockerfile</dockerFile>
+                            </build>
+                            <run>
+                                <ports>
+                                    <port>48322:22</port>
+                                    <port>48380:80</port>
+                                </ports>
+                                <hostname>bbots-web-frontend</hostname>
+                                <containerNamePattern>bbots-web-frontend</containerNamePattern>
+                                <env>
+                                    <LANG>C.UTF-8</LANG>
+                                </env>
+                            </run>
+                        </image>
+                    </images>
+                    <authConfig>
+                        <username>benzenebots</username>
+                        <password>BBots2020</password>
+                    </authConfig>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
