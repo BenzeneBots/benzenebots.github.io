@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Safety - Benzene Bots</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Oswald&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/style.css">
+    
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <script src="/partials/loader.js"></script>
+</head>
+
+<body>
+
+    <div class="container center">
+        <img src="/img/safetyposter.png" style="max-height: 100vh" class="responsive-img">
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.carousel');
+            var instances = M.Carousel.init(elems, {
+                numVisible: 3,
+                dist: -50,
+                indicators: true
+            });
+        });
+    </script>
+</body>
+
+</html>
