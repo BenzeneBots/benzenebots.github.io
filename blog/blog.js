@@ -1,4 +1,4 @@
-const API_ROOT = 'https://api.benzenenbots.com';
+const API_ROOT = 'https://api.benzenebots.com';
 
 const fetchPosts = (s = 0, n = 20) => {
     fetch(API_ROOT + '/posts/' + n + '/' + s)
