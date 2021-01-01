@@ -17,8 +17,16 @@
 </head>
 
 <body>
-    <section>
-        <div class="container awards">
+    <nav>
+        <div class="nav-wrapper black" id="nav">
+        </div>    
+    </nav>
+
+    <ul class="sidenav grey darken-4" id="mobile-nav">
+    </ul>
+
+    <main>
+        <div class="container awards bigger-text">
             <h2>Award History</h2>
 
             <h4>2019</h4>
@@ -107,18 +115,8 @@
                 <li>Rookie All Star Award</li>
             </ul>
         </div>
-    </section>
+    </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.carousel');
-            var instances = M.Carousel.init(elems, {
-                numVisible: 3,
-                dist: -50,
-                indicators: true
-            });
-        });
-    </script>
 </body>
 
 </html>

@@ -2,24 +2,31 @@
 
 <head>
     <title>Business - Benzene Bots</title>
-	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Oswald&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="/style.css">
-    
+
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
+
     <script src="/partials/loader.js"></script>
 </head>
 
 <body>
+    <nav>
+        <div class="nav-wrapper black" id="nav">
+        </div>
+    </nav>
 
-    <section id="business">
-        <div class="container">
+    <ul class="sidenav grey darken-4" id="mobile-nav">
+    </ul>
+
+    <main>
+        <div class="container bigger-text">
             <h1>What is Technical?</h1>
             <div class="row equal-height-cards cards-no-padding">
                 <div class="col s12 l4">
@@ -30,10 +37,13 @@
                         </div>
                         <div class="card-content">
                             <p>
-                            In the sponsors and communication section of the business team, you will be writing letters and working closely with sponsors in order to retain them for the long run as well as get new sponsors.
-                            The second part of this section of business is the communication aspect.
-                            Here you will work at documenting events and working on the social media side of the team.
-                            You will also update the teams website and YouTube channel. 
+                                In the sponsors and communication section of the business team, you will be writing
+                                letters and working closely with sponsors in order to retain them for the long run as
+                                well as get new sponsors.
+                                The second part of this section of business is the communication aspect.
+                                Here you will work at documenting events and working on the social media side of the
+                                team.
+                                You will also update the teams website and YouTube channel.
                             </p>
                         </div>
                     </div>
@@ -46,12 +56,16 @@
                         </div>
                         <div class="card-content">
                             <p>
-                                In the Awards and Outreach section, you're main focus will be to work towards team awards such as Chairman's or other smaller awards.
-                                Awards are necessary to the team since they can ensure a trip to the state level competitions or even the world level.
+                                In the Awards and Outreach section, you're main focus will be to work towards team
+                                awards such as Chairman's or other smaller awards.
+                                Awards are necessary to the team since they can ensure a trip to the state level
+                                competitions or even the world level.
                                 Awards in general serve as a way for the team to earn points also.
                                 Outreach is the second aspect of this section.
-                                In outreach, you will be working in the community to spread more knowledge about STEM fields.
-                                In outreach we work with both elementary and middle schools and conduct experiments and other events. 
+                                In outreach, you will be working in the community to spread more knowledge about STEM
+                                fields.
+                                In outreach we work with both elementary and middle schools and conduct experiments and
+                                other events.
                             </p>
                         </div>
                     </div>
@@ -64,28 +78,17 @@
                         </div>
                         <div class="card-content">
                             <p>
-                            In the finances section of our business team, you will work mainly on the team finances such as our financial statements.
-                            You will also calculate our expenditures and revenue for each season.
-                            You will also handle the team purchases and monetary aid.  
+                                In the finances section of our business team, you will work mainly on the team finances
+                                such as our financial statements.
+                                You will also calculate our expenditures and revenue for each season.
+                                You will also handle the team purchases and monetary aid.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.carousel');
-            var instances = M.Carousel.init(elems, {
-                numVisible: 3,
-                dist: -50,
-                indicators: true
-            });
-        });
-    </script>
+    </main>
 </body>
 
 </html>

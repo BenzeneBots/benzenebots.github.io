@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Safety - Benzene Bots</title>
+    <title>Blog - Benzene Bots</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Oswald&family=Roboto:wght@400;700&display=swap"
@@ -19,17 +19,30 @@
 <body>
     <nav>
         <div class="nav-wrapper black" id="nav">
-        </div>
+        </div>    
     </nav>
 
     <ul class="sidenav grey darken-4" id="mobile-nav">
     </ul>
 
     <main>
-        <div class="container center">
-            <img src="/img/safetyposter.png" style="max-height: 100vh" class="responsive-img">
+        <div class="container" id="out">
+            <div style="margin-top: 20px">
+                <a class="btn red darken-3" href="/blog/#" id="back">
+                    <span class="material-icons">arrow_back</span> Back
+                </a>
+            </div>
         </div>
     </main>
+
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://unpkg.com/md@0.6.0/dist/md.min.js"></script>
+    <script src="./blog.js"></script>
+    <script>
+        const POST_ID = window.location.toString().split('id=')[1];
+        document.getElementById('back').href += POST_ID;
+        fetchPost(POST_ID);
+    </script>
 </body>
 
 </html>

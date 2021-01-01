@@ -2,46 +2,49 @@
 
 <head>
     <title>About Us - Benzene Bots</title>
-	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Oswald&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="/style.css">
-    
+
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
+
     <script src="/partials/loader.js"></script>
 </head>
 
 <body>
-    <section>
-        <div class="row red darken-3" style="margin-top: 50px">
+    <nav>
+        <div class="nav-wrapper black" id="nav">
+        </div>
+    </nav>
+
+    <ul class="sidenav grey darken-4" id="mobile-nav">
+    </ul>
+
+    <main>
+        <div class="row red darken-3 bigger-text" style="margin-top: 50px">
             <div class="col s12 l8">
                 <img src="/img/benzene.png" class="responsive-img">
             </div>
             <div class="col s12 l4">
                 <h2>About Our Team</h2>
                 <p>
-                    Benzene Bots is a high school robotics team located in Troy, MI that competes in the FIRST Robotics Competition. But more importantly, Benzene Bots is a program that inspires students to acquire and apply STEM skills to pursue great goals in their lifetimes. Our mission is not only to inspire students' interest in STEM, but to prepare them for the work world and equip them with the skills necessary to be successful, being a consistent resource every stage of the learning process. FIRST and Benzene Bots teach important technical, managerial, and public relations skills to their members and community. Team involvement also strengthens students' life skills, particularly their organization, dedication, and capacity for hard work.
+                    Benzene Bots is a high school robotics team located in Troy, MI that competes in the FIRST Robotics
+                    Competition. But more importantly, Benzene Bots is a program that inspires students to acquire and
+                    apply STEM skills to pursue great goals in their lifetimes. Our mission is not only to inspire
+                    students' interest in STEM, but to prepare them for the work world and equip them with the skills
+                    necessary to be successful, being a consistent resource every stage of the learning process. FIRST
+                    and Benzene Bots teach important technical, managerial, and public relations skills to their members
+                    and community. Team involvement also strengthens students' life skills, particularly their
+                    organization, dedication, and capacity for hard work.
                 </p>
             </div>
         </div>
-    </section>
-    
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.carousel');
-            var instances = M.Carousel.init(elems, {
-                numVisible: 3,
-                dist: -50,
-                indicators: true
-            });
-        });
-    </script>
+    </main>
 </body>
 
 </html>

@@ -16,7 +16,7 @@ main {
     min-height: calc(100vh - 64px);
 }
 
-section p {
+section p, .bigger-text p {
     font-size: 16pt;
 }
 
@@ -43,6 +43,10 @@ h4 {
 
 h1 {
     font-size: 8rem
+}
+
+strong {
+    font-weight: 700;
 }
 
 .card-title {
@@ -299,4 +303,43 @@ section#sponsors .row {
     section#sponsors .container {
         width: 90%;
     }
+}
+
+.post {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 5px;
+}
+
+.post-body {
+    margin-left: 1.2em;
+}
+
+.post-body img {
+    max-height: 40vh;
+    max-width: 80vw;
+}
+
+.post-body h1 {
+    font-size: 2.7em;
+}
+
+.post-body h2 {
+    font-size: 2.2em;
+}
+
+.post-body h3 {
+    font-size: 1.8em;
+}
+
+.post-body h4 {
+    font-size: 1.3em;
+}
+
+.post h3 a {
+    color: #c62828;
+}
+
+.btn .material-icons {
+    font-size: 22px;
+    vertical-align: -6px;
 }
