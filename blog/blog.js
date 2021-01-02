@@ -1,7 +1,7 @@
 const API_ROOT = 'https://api.benzenebots.com';
 
-const fetchPosts = (s = 0, n = 20) => {
-    fetch(API_ROOT + '/posts/' + n + '/' + s)
+const fetchPosts = (s = 0, e = 20) => {
+    fetch(API_ROOT + '/posts/' + s + '/' + e)
         .then((res) => res.json())
         .then((posts) => {
             let out = document.getElementById('out');
