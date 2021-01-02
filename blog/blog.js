@@ -31,9 +31,7 @@ const generatePost = (post, standalone = false) => {
 
     let d = document.createElement('div');
     d.classList.add('post-published-date');
-    // This will problem break because DST
-    // I hate time
-    d.innerHTML = moment(new Date(post.published)).utcOffset(-60 * 10).format('LLL');
+    d.innerHTML = moment(new Date(post.published)).format('LLL');
     elm.appendChild(d);
 
     let b = document.createElement('div');
