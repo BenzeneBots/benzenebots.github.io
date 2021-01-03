@@ -3,12 +3,12 @@ delete pathname[pathname.length-1];
 pathname = pathname.join('/');
 
 const loadNav = () => {
-    document.querySelector(`nav li a[href="${pathname}"]`).parentNode.classList.add('active');
+    if (pathname !== '/admin/') document.querySelector(`nav li a[href="${pathname}"]`).parentNode.classList.add('active');
     M.Dropdown.init(document.querySelectorAll('.dropdown-trigger'), {hover: true, constrainWidth: false});
 };
 
 const loadMobileNav = () => {
-    document.querySelector(`.sidenav li a[href="${pathname}"]`).parentNode.classList.add('active');
+    if (pathname !== '/admin/') document.querySelector(`.sidenav li a[href="${pathname}"]`).parentNode.classList.add('active');
     M.Sidenav.init(document.querySelectorAll('.sidenav'), {});
 };
 
