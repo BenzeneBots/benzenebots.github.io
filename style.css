@@ -343,3 +343,15 @@ section#sponsors .row {
     font-size: 22px;
     vertical-align: -6px;
 }
+
+.post-controls {
+    margin-top: 15px;
+}
+
+.post-controls a.btn {
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    margin: 0 2px;
+    padding: 0 8px;
+}

@@ -40,35 +40,15 @@ const addSubmitListener = () => {
     document.forms[0].addEventListener('submit', (evt) => {
         evt.preventDefault();
     });
-    if (localStorage.id) {
-        fetch(API_ROOT + '/user/auth', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                id: localStorage.id,
-                password: localStorage.password
-            })
-        })
-        .then(res => res.json())
-        .then(json => {
-            if (json.user) {
-                window.location.href = "/admin/";
-            } else {
-                document.getElementById("login-error").innerText = json.error;
-                localStorage.removeItem('id');
-                localStorage.removeItem('password');
-            }
-        })
-        .catch(err => {
-            M.toast({
-                text: err.message
-            });
-        });
-    }
 }
 
 addSubmitListener();
 setTimeout(addSubmitListener, 1e3);
 setTimeout(addSubmitListener, 3e3);
+
+window.addEventListener('auth', (evt) => {
+    if (auth) {
+        window.location.href = "/admin/";
+    }
+});
+runAuth();

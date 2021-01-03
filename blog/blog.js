@@ -1,12 +1,12 @@
 const API_ROOT = 'https://api.benzenebots.com';
 
-const blogList = (s = 0, e = 20) => {
+const blogList = (admin = false, s = 0, e = 20) => {
     fetch(API_ROOT + '/posts/' + s + '/' + e)
         .then((res) => res.json())
         .then((posts) => {
             let out = document.getElementById('out');
             for (let post of posts.posts) {
-                out.appendChild(generatePost(post));
+                out.appendChild(generatePost(post, false, admin));
             }
         });
 };
@@ -39,7 +39,7 @@ const blogHomepage = () => {
         });
 }
 
-const generatePost = (post, standalone = false) => {
+const generatePost = (post, standalone = false, admin = false) => {
     let elm = document.createElement('div');
     elm.classList.add('post');
     elm.id = post.id;
@@ -56,6 +56,10 @@ const generatePost = (post, standalone = false) => {
     let b = document.createElement('div');
     b.classList.add('post-body');
     b.innerHTML = md(post.content, {breaks: true});
+    if (admin) b.innerHTML += `<div class="row post-controls">
+    <a href="/admin/editPost.html?id=${post.id}" class="btn red darken-3">Edit</a>
+    <a href="/admin/deletePost.html?id=${post.id}" class="btn red darken-3">Delete</a>
+    </div>`;
     elm.appendChild(b);
 
     return elm;
