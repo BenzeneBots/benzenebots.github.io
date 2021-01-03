@@ -13,7 +13,6 @@ function login() {
                 if (json.user) {
                     localStorage.setItem("email",email)
                     localStorage.setItem("password",hashedPassword)
-                    console.log(localStorage.getItem("email"),localStorage.getItem("password"))
                     window.location.href = "/adminPanel/";
                 }
                 else {
