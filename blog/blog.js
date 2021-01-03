@@ -50,7 +50,7 @@ const generatePost = (post, standalone = false) => {
 
     let d = document.createElement('div');
     d.classList.add('post-published-date');
-    d.innerHTML = moment(new Date(post.published)).format('LLL');
+    d.innerHTML = moment(new Date(post.published)).utcOffset(0).format('LLL');
     elm.appendChild(d);
 
     let b = document.createElement('div');
@@ -96,7 +96,7 @@ const generateCard = (post) => {
 
     let cardContent = document.createElement('div');
     cardContent.classList.add('card-content');
-    cardContent.innerHTML = `<div style="font-size: 10pt; margin-bottom: 10px">Published ${moment(new Date(post.published)).format('LL')}</div>\n${md(cleanUpContent(post.content))}`;
+    cardContent.innerHTML = `<div style="font-size: 10pt; margin-bottom: 10px">Published ${moment(new Date(post.published)).utcOffset(0).format('LL')}</div>\n${md(cleanUpContent(post.content))}`;
     card.appendChild(cardContent);
 
     let action = document.createElement('div');
