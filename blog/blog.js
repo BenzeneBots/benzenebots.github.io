@@ -1,11 +1,6 @@
 const API_ROOT = 'https://api.benzenebots.com';
 
-<<<<<<< HEAD
-const fetchPosts = (s = 0, e = 20) => {
-    alert("Ran");
-=======
 const blogList = (s = 0, e = 20) => {
->>>>>>> 163a1e33b55c3ff63d641bc8d94e7e3ab95dc81a
     fetch(API_ROOT + '/posts/' + s + '/' + e)
         .then((res) => res.json())
         .then((posts) => {
@@ -55,13 +50,7 @@ const generatePost = (post, standalone = false) => {
 
     let d = document.createElement('div');
     d.classList.add('post-published-date');
-<<<<<<< HEAD
-    // This will problem break because DST
-    // I hate time
-    d.innerHTML = moment(new Date(post.published)).utcOffset(-60 * 10).format('LLL');
-=======
     d.innerHTML = moment(new Date(post.published)).utcOffset(0).format('LLL');
->>>>>>> 163a1e33b55c3ff63d641bc8d94e7e3ab95dc81a
     elm.appendChild(d);
 
     let b = document.createElement('div');
