@@ -1,6 +1,7 @@
 const API_ROOT = 'https://api.benzenebots.com';
 
 const fetchPosts = (s = 0, e = 20) => {
+    alert("Ran");
     fetch(API_ROOT + '/posts/' + s + '/' + e)
         .then((res) => res.json())
         .then((posts) => {
@@ -31,7 +32,9 @@ const generatePost = (post, standalone = false) => {
 
     let d = document.createElement('div');
     d.classList.add('post-published-date');
-    d.innerHTML = moment(new Date(post.published)).format('LLL');
+    // This will problem break because DST
+    // I hate time
+    d.innerHTML = moment(new Date(post.published)).utcOffset(-60 * 10).format('LLL');
     elm.appendChild(d);
 
     let b = document.createElement('div');

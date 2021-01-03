@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <title>Admin Panel</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Oswald&family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="/partials/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+<nav>
+    <div class="nav-wrapper black" id="nav">
+    </div>
+</nav>
+
+<ul class="sidenav grey darken-4" id="mobile-nav">
+</ul>
+
+<main>
+    <section id="mailing list">
+        <div class="container">
+            <h2 class="center">LOGIN</h2>
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="email" type="email">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="row center">
+                    <a id="login-error" class="red-text center"></a>
+                </div>
+
+                <div class="row center">
+                    <button id="hellobutton" class="btn red darken-3">Login</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+</body>
+
+</html>
