@@ -17,6 +17,9 @@ const blogListSimple = (admin = false, s = 0, e = 20) => {
             for (let post of posts.posts) {
                 out.appendChild(generateSimplePost(post, admin));
             }
+            document.querySelectorAll('.delete-button').forEach((btn) => {
+                btn.addEventListener('click', () => modals[0].open());
+            });
         });
 };
 
@@ -64,7 +67,7 @@ const generateSimplePost = (post, admin = false) => {
     if (admin) b.innerHTML += `
     <a href="/blog/post.html?id=${post.id}" class="btn red darken-3">View</a>
     <a href="/admin/blog/edit.html?id=${post.id}" class="btn red darken-3">Edit</a>
-    <a href="/admin/blog/delete.html?id=${post.id}" class="btn red darken-3">Delete</a>`;
+    <a href="#!${post.id}" class="btn red darken-3 delete-button">Delete</a>`;
     elm.appendChild(b);
 
     return elm;

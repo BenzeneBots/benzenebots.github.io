@@ -7,8 +7,10 @@ const today = () => {
 let post = {
     published: today(),
     title: '',
-    content: ''
+    content: '',
+    images: []
 };
+let postModified = post;
 
 window.addEventListener('navload', async () => {
     if (POST_ID) {
@@ -16,7 +18,15 @@ window.addEventListener('navload', async () => {
             .then((res) => res.json())).post;
     }
 
-    document.getElementById('editor').innerHTML = post.content;
+    if (localStorage.hasOwnProperty(POST_ID || 'draft')) {
+        postModified = JSON.parse(localStorage.getItem(POST_ID || 'draft'));
+        postModified.images = JSON.parse(postModified.images);
+        document.getElementById('editor').innerHTML = postModified.content;
+    } else {
+        postModified = post;
+        document.getElementById('editor').innerHTML = post.content;
+    }
+
     editor = ace.edit('editor');
     editor.session.setUseWrapMode(true)
     editor.setTheme('ace/theme/twilight');
@@ -25,16 +35,20 @@ window.addEventListener('navload', async () => {
     document.getElementById('preview').innerHTML = md(editor.getValue());
     editor.session.on('change', () => {
         document.getElementById('preview').innerHTML = md(editor.getValue())
+        postModified.content = editor.getValue();
+        localStorage.setItem(POST_ID || 'draft', JSON.stringify(postModified));
     });
 
-    document.getElementById('title').value = post.title;
+    document.getElementById('title').value = postModified.title;
     document.getElementById('title-preview').innerHTML = document.getElementById('title').value;
     document.getElementById('title').addEventListener('keyup', () => {
         document.getElementById('title-preview').innerHTML = document.getElementById('title').value;
+        postModified.title = document.getElementById('title').value;
+        localStorage.setItem(POST_ID || 'draft', JSON.stringify(postModified));
     });
     M.updateTextFields();
 
-    document.getElementById('date').innerHTML = moment(new Date(post.published)).utcOffset(-60 * 5).format('LLL');
+    document.getElementById('date').innerHTML = moment(new Date(postModified.published)).utcOffset(-60 * 5).format('LLL');
 
     modals = M.Modal.init(document.querySelectorAll('.modal'), {
         onCloseStart: modalClose
@@ -66,13 +80,69 @@ window.addEventListener('navload', async () => {
             .then((res) => res.json());
         if (!json.id) {
             M.toast({
-                text: json.error
+                html: json.error
             });
         } else {
             let filename = document.getElementById('insert-image').value.replaceAll('\\', '/').split('/').pop();
             editor.session.insert(editor.getCursorPosition(), `![${filename}](https://api.benzenebots.com/${json.id})`);
+            postModified.images.push(json.id);
         }
         editor.focus();
+    });
+
+    document.getElementById('delete').addEventListener('click', () => modals[2].open());
+    document.getElementById('delete-submit').addEventListener('click', async () => {
+        if (postModified.images.length > 0) {
+            await fetch(API_ROOT + '/store/delete', {
+                method: 'DELETE',
+                body: JSON.stringify({
+                    images: postModified.images
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                    id: localStorage.id,
+                    password: localStorage.password
+                }
+            });
+        }
+
+        localStorage.removeItem(POST_ID || 'draft');
+        M.toast({
+            html: 'Draft deleted'
+        });
+        window.location.href = '/admin/blog/';
+    });
+
+    document.getElementById('save').addEventListener('click', async () => {
+        if (postModified.title === '') {
+            M.toast({
+                html: 'You need to add a title before you can publish this.'
+            });
+            return;
+        } else if (postModified.content === '') {
+            M.toast({
+                html: 'You need to write something before you can publish this.'
+            });
+            return;
+        }
+        let json = await fetch(API_ROOT + '/post/' + (POST_ID || ''), {
+            method: (POST_ID) ? 'PATCH' : 'POST',
+            body: JSON.stringify(postModified),
+            headers: {
+                "Content-Type": "application/json",
+                id: localStorage.id,
+                password: localStorage.password
+            }
+        });
+
+        if (json.hasOwnProperty('error')) {
+            M.toast({
+                html: json.error
+            });
+        } else {
+            localStorage.removeItem(POST_ID || 'draft');
+            window.location.href = '/blog/';
+        }
     });
 });
 
