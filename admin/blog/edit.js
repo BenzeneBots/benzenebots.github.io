@@ -18,6 +18,7 @@ window.addEventListener('navload', async () => {
 
     document.getElementById('editor').innerHTML = post.content;
     editor = ace.edit('editor');
+    editor.session.setUseWrapMode(true)
     editor.setTheme('ace/theme/twilight');
     editor.session.setMode('ace/mode/markdown');
 
