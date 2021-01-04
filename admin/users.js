@@ -1,8 +1,7 @@
 function getAllUsers() {
     const id = localStorage.getItem("id");
     const password = localStorage.getItem("password");
-
-    console.log(id,password)
+    
     fetch(API_ROOT + '/users', {
         method: 'GET',
         headers: {
