@@ -1,5 +1,3 @@
-const API_ROOT = 'https://api.benzenebots.com';
-
 function getAllUsers() {
     const id = localStorage.getItem("id");
     const password = localStorage.getItem("password");

@@ -37,7 +37,7 @@
 </main>
 <script>
     const URL = document.URL.toString();
-    var id = URL.split("?id=")[1]
+    const id = URL.split("?id=")[1];
 
     window.addEventListener('auth', (evt) => {
         if (!auth) {
