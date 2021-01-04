@@ -1,5 +1,3 @@
-const API_ROOT = 'https://api.benzenebots.com';
-
 const blogList = (admin = false, s = 0, e = 20) => {
     fetch(API_ROOT + '/posts/' + s + '/' + e)
         .then((res) => res.json())

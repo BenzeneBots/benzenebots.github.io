@@ -26,17 +26,17 @@
     </ul>
 
     <main>
-        <h1 class="center">Admin Panel</h1>
-        <div>
-
-            <button style="border-radius: 15px" class="btn-dark center">         <h1>Users</h1></button>
+        <h3 class="center">Admin Panel</h3>
+        <div class="row center">
+            <a href="/admin/blog/" class="btn red darken-3">Blog</a>
+            <a href="/admin/users/" class="btn red darken-3">Users</a>
         </div>
     </main>
     <script src="auth.js"></script>
     <script>
         window.addEventListener('auth', (evt) => {
             if (!auth) {
-                window.location.href = "/admin/login";
+                window.location.href = "/admin/login.html";
             }
         });
         runAuth();
