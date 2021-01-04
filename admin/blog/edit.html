@@ -25,10 +25,45 @@
     <ul class="sidenav grey darken-4" id="mobile-nav">
     </ul>
 
+    <div id="linkmodal" class="modal grey darken-4">
+        <div class="modal-content">
+            <h4>Insert Link</h4>
+            <div class="input-field row">
+                <input id="insert-link-display" name="insert-link-display" type="text">
+                <label for="insert-link-display">Link text</label>
+            </div>
+            <div class="input-field row">
+                <input id="insert-link" name="insert-link" type="url">
+                <label for="insert-link">URL</label>
+            </div>
+        </div>
+        <div class="modal-footer grey darken-3">
+            <a href="#!" class="modal-close btn red darken-3">Cancel</a>
+            <a href="#!" class="modal-close btn red darken-3" id="insert-link-submit">Insert</a>
+        </div>
+    </div>
+
+    <div id="imagemodal" class="modal grey darken-4">
+        <div class="modal-content">
+            <h4>Insert Image</h4>
+            <div class="input-field row">
+                <input id="insert-image" name="insert-image" type="file" accept="png,jpg,gif">
+                <label for="insert-image">Image</label>
+            </div>
+        </div>
+        <div class="modal-footer grey darken-3">
+            <a href="#!" class="modal-close btn red darken-3">Cancel</a>
+            <a href="#!" class="modal-close btn red darken-3" id="insert-image-submit">Insert</a>
+        </div>
+    </div>
+
     <main>
         <div class="container">
             <div class="row" style="margin-top: 20px;">
                 <a href="./" class="btn red darken-3"><span class="material-icons">arrow_back</span> Back</a>
+                <a href="#" class="btn red darken-3" id="save"><span class="material-icons">save</span> Save</a>
+                <a href="./delete.html?id=" class="btn red darken-3" id="delete"><span
+                        class="material-icons">delete</span> Delete</a>
             </div>
             <div class="row input-field">
                 <input name="title" id="title" type="text">
@@ -39,6 +74,30 @@
             <div class="container">
                 <div class="row">
                     <div class="col s12 l6">
+                        <div class="row" id="toolbar">
+                            <a href="#" id="tool-bold" class="btn grey darken-4"><span
+                                    class="material-icons">format_bold</span></a>
+                            <a href="#" id="tool-italics" class="btn grey darken-4"><span
+                                    class="material-icons">format_italic</span></a>
+                            <a href="#" id="tool-strikethrough" class="btn grey darken-4"><span
+                                    class="material-icons">strikethrough_s</span></a>
+                            <a href="#" id="tool-header" class="btn grey darken-4"><span
+                                    class="material-icons">format_size</span></a>
+                            <div class="vdivider"></div>
+                            <a href="#" id="tool-ulist" class="btn grey darken-4"><span
+                                    class="material-icons">format_list_bulleted</span></a>
+                            <a href="#" id="tool-olist" class="btn grey darken-4"><span
+                                    class="material-icons">format_list_numbered</span></a>
+                            <a href="#" id="tool-quote" class="btn grey darken-4"><span
+                                    class="material-icons">format_quote</span></a>
+                            <a href="#" id="tool-code" class="btn grey darken-4"><span
+                                    class="material-icons">code</span></a>
+                            <div class="vdivider"></div>
+                            <a href="#" id="tool-link" class="btn grey darken-4"><span
+                                    class="material-icons">insert_link</span></a>
+                            <a href="#" id="tool-photo" class="btn grey darken-4"><span
+                                    class="material-icons">insert_photo</span></a>
+                        </div>
                         <div id="editor" style="width 100%; height: 75vh"></div>
                     </div>
                     <div class="col s12 l6">
@@ -57,11 +116,22 @@
     <script src="/admin/auth.js"></script>
     <script src="https://momentjs.com/downloads/moment.min.js"></script>
     <script src="https://unpkg.com/md@0.6.0/dist/md.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/theme-twilight.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-markdown.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.js" type="text/javascript" charset="utf-8">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/theme-twilight.min.js" type="text/javascript"
+        charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-markdown.min.js" type="text/javascript"
+        charset="utf-8"></script>
     <script src="edit.js"></script>
     <script>
+        const POST_ID = window.location.toString().split('id=')[1];
+
+        if (POST_ID) document.getElementById('delete').href += POST_ID;
+        else {
+            document.getElementById('delete').style.display = 'none';
+            document.getElementById('save').innerHTML = '<span class="material-icons">save</span> Publish';
+        }
+
         window.addEventListener('auth', (evt) => {
             if (!auth) {
                 window.location.href = "/admin/login.html?redirect=" + encodeURI(window.location);

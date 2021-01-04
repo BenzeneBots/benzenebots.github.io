@@ -16,7 +16,8 @@ main {
     min-height: calc(100vh - 64px);
 }
 
-section p, .bigger-text p {
+section p,
+.bigger-text p {
     font-size: 16pt;
 }
 
@@ -310,6 +311,10 @@ section#sponsors .row {
     padding-bottom: 5px;
 }
 
+.post>h3 {
+    text-transform: none;
+}
+
 .post-body {
     margin-left: 1.2em;
 }
@@ -364,6 +369,22 @@ section#sponsors .row {
     padding: 0 12px;
 }
 
+#toolbar {
+    margin: 5px 1px;
+}
+
+#toolbar a {
+    height: 26px;
+    line-height: 26px;
+    font-size: 12px;
+    margin: 0 1px;
+    padding: 2px 4px;
+}
+
+#toolbar a .material-icons {
+    vertical-align: -7px;
+}
+
 #editor {
     width: 100%;
     height: 70vh;
@@ -376,4 +397,15 @@ section#sponsors .row {
 
 .post.preview h3 {
     margin-top: 0;
+}
+
+.vdivider {
+    display: inline;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    margin-right: 3px;
+    height: 100%;
+}
+
+.post ul>li {
+    list-style: initial;
 }
