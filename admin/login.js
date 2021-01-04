@@ -1,5 +1,3 @@
-const API_ROOT = 'https://api.benzenebots.com';
-
 const login = async (password, email) => {
     let hashedPassword = await new Promise((resolve, reject) => crypto.subtle.digest('SHA-256', (new TextEncoder()).encode(password)).then(hash => {
         resolve(Array.prototype.map.call(new Uint8Array(hash), x => ('00' + x.toString(16)).slice(-2)).join(''));

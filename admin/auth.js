@@ -1,4 +1,3 @@
-const API_ROOT = 'https://api.benzenebots.com';
 let auth = null;
 const event = new CustomEvent('auth', { detail: auth });
 
