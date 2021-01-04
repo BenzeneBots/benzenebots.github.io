@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    <title>Users - Benzene Bots</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Oswald&family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="/partials/loader.js"></script>
+
+    <style>
+        table td {border: 2px solid darkred;padding: 2px;}
+    </style>
+
+    <script src="users.js"></script>
+
+</head>
+
+<body>
+<nav>
+    <div class="nav-wrapper black" id="nav">
+    </div>
+</nav>
+
+<ul class="sidenav grey darken-4" id="mobile-nav">
+</ul>
+
+<main id="main-page-display">
+
+</main>
+<script>
+    const URL = document.URL.toString();
+    var id = URL.split("?id=")[1]
+
+    window.addEventListener('auth', (evt) => {
+        if (!auth) {
+            window.location.href = "/admin/login";
+        }
+    });
+
+    if (id !== undefined) {
+        let display = document.getElementById("main-page-display")
+        let page = `
+                <section>
+                        <div class="container">
+                            <ul class="row center hide-on-med-and-down">
+                              <li><div class="input-field col s6">
+                                    <input id="id" type="text" class="validate" value=${id}>
+                                    <label for="id">ID</label>
+                                </div></li>
+                                <li><div class="input-field col s6">
+                                    <input id="name" type="text" class="validate">
+                                    <label for="name">Name</label>
+                                </div></li>
+                                <li>
+                                 <a class="dropdown-trigger" data-target="nav-dropdown-test"> <i class="material-icons right">arrow_drop_down</i>Role</a>
+                                     <ul id="nav-dropdown-test" class="dropdown-content">
+                                        <li><a href="/structure/technical.html">Admin</a></li>
+                                        <li><a href="/structure/safety.html">Editor</a></li>
+                                        <li><a href="/structure/business.html">Viewer</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </section>`
+        display.innerHTML = page;
+    }
+    else {
+        let display = document.getElementById("main-page-display")
+        let page = `
+            <section>
+                    <div class="container">
+                        <table class="highlight centered responsive-table">
+                            <thead>
+                            <tr>
+                                <th>Index</th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                            </tr>
+                            </thead>
+
+                            <tbody id="display-users">
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </section>`
+        display.innerHTML = page;
+        getAllUsers()
+    }
+</script>
+
+</body>
+
+</html>

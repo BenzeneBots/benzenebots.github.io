@@ -1,4 +1,4 @@
-const API_ROOT = 'http://localhost:8000'//'https://api.benzenebots.com';
+const API_ROOT = 'https://api.benzenebots.com';
 
 let navLoadEvent = new Event('navload');
 let pathname = window.location.pathname.split('/');
