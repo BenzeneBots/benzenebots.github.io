@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Blog - Benzene Bots</title>
+    <title>Admin Panel</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Oswald&family=Roboto:wght@400;700&display=swap"
@@ -19,30 +19,44 @@
 <body>
     <nav>
         <div class="nav-wrapper black" id="nav">
-        </div>    
+        </div>
     </nav>
 
     <ul class="sidenav grey darken-4" id="mobile-nav">
     </ul>
 
     <main>
-        <div class="container" id="out">
-            <div style="margin-top: 20px">
-                <a class="btn red darken-3" href="/blog/#" id="back">
-                    <span class="material-icons">arrow_back</span> Back
-                </a>
+        <div class="container bigger-text">
+            <div class="row" style="margin-top: 20px;">
+                <a href="../" class="btn red darken-3"><span class="material-icons">arrow_back</span> Back</a>
+                <a href="./edit.html" class="btn red darken-3" style="margin-left: 5px">New Post</a>
             </div>
         </div>
+        <section class="grey darken-3">
+            <div class="container">
+                <table>
+                    <tr>
+                        <th>Title</th>
+                        <th>Publish Date</th>
+                        <th></th>
+                    </tr>
+                    <tbody id="out"></tbody>
+                </table>
+            </div>
+        </section>
     </main>
-
+    <script src="/admin/auth.js"></script>
     <script src="https://momentjs.com/downloads/moment.min.js"></script>
     <script src="https://unpkg.com/md@0.6.0/dist/md.min.js"></script>
-    <script src="blog.js"></script>
+    <script src="/blog/blog.js"></script>
     <script>
-        const API_ROOT = 'https://api.benzenebots.com';
-        const POST_ID = window.location.toString().split('id=')[1];
-        document.getElementById('back').href += POST_ID;
-        blogStandalone(POST_ID);
+        window.addEventListener('auth', (evt) => {
+            if (!auth) {
+                window.location.href = "/admin/login.html?redirect=" + encodeURI(window.location);
+            }
+        });
+        runAuth();
+        blogListSimple(true);
     </script>
 </body>
 
