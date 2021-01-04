@@ -23,6 +23,9 @@ const login = async (password, email) => {
                 window.location.href = "/admin/";
             } else {
                 document.getElementById("login-error").innerText = json.error;
+                setInterval(() => {
+                    document.getElementById("login-error").innerText = " ";
+                },3000)
             }
         })
         .catch(err => {
