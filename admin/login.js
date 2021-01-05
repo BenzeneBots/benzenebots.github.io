@@ -18,7 +18,7 @@ const login = async (password, email) => {
             if (json.user) {
                 localStorage.setItem("id", json.user.id);
                 localStorage.setItem("password", json.user.password);
-                window.location.href = "/admin/";
+                window.location.href = REDIRECT || "/admin/";
             } else {
                 document.getElementById("login-error").innerText = json.error;
                 setInterval(() => {
