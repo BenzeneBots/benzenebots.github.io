@@ -20,7 +20,6 @@ window.addEventListener('navload', async () => {
 
     if (localStorage.hasOwnProperty(POST_ID || 'draft')) {
         postModified = JSON.parse(localStorage.getItem(POST_ID || 'draft'));
-        postModified.images = JSON.parse(postModified.images);
         document.getElementById('editor').innerHTML = postModified.content;
     } else {
         postModified = post;
