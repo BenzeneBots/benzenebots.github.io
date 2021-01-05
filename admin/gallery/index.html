@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <title>Admin Panel</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Oswald&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="/partials/loader.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper black" id="nav">
+        </div>
+    </nav>
+
+    <ul class="sidenav grey darken-4" id="mobile-nav">
+    </ul>
+
+    <div id="deletemodal" class="modal grey darken-4">
+        <div class="modal-content">
+            <p>Are you sure you want to delete this post?</p>
+            <div class="row">
+                <a href="#!" class="modal-close btn red darken-3">Cancel</a>
+                <a href="#!" class="modal-close btn grey darken-3" id="delete-submit">Delete</a>
+            </div>            
+        </div>
+    </div>
+
+    <main>
+        <div class="container bigger-text">
+            <div class="row" style="margin-top: 20px;">
+                <a href="/admin/" class="btn red darken-3"><span class="material-icons">arrow_back</span> Back</a>
+                <a href="/admin/gallery/edit.html" class="btn red darken-3" style="margin-left: 5px" id="new-post">New Album</a>
+            </div>
+        </div>
+        <section class="grey darken-3">
+            <div class="container">
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Pictures</th>
+                        <th></th>
+                    </tr>
+                    <tbody id="out"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="/admin/auth.js"></script>
+    <script src="/pictures/albums.js"></script>
+    <script>
+        window.addEventListener('auth', (evt) => {
+            if (!auth) {
+                window.location.href = "/admin/login.html?redirect=" + encodeURI(window.location);
+            }
+            listAlbums();
+        });
+        runAuth();
+    </script>
+</body>
+
+</html>

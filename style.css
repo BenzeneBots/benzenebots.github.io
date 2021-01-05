@@ -409,3 +409,15 @@ section#sponsors .row {
 .post ul>li {
     list-style: initial;
 }
+
+.grid-item {
+    width: 20%;
+}
+
+.grid-item--width2 {
+    width: 40%;
+}
+
+.grid-item img {
+    width: 100%;
+}

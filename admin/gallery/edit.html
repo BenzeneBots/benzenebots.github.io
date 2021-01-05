@@ -26,18 +26,19 @@
     </ul>
 
     <main>
-        <h3 class="center">Admin Panel</h3>
-        <div class="row center">
-            <a href="/admin/blog/" class="btn red darken-3">Blog</a>
-            <a href="/admin/gallery/" class="btn red darken-3">Pictures</a>
-            <a href="/admin/users/" class="btn red darken-3">Users</a>
+        <div class="container">
+            
         </div>
     </main>
-    <script src="auth.js"></script>
+
+    <script src="/admin/auth.js"></script>
+    <script src="/admin/gallery/edit.js"></script>
     <script>
+        const ALBUM_ID = window.location.toString().split('id=')[1];
+
         window.addEventListener('auth', (evt) => {
             if (!auth) {
-                window.location.href = "/admin/login.html";
+                window.location.href = "/admin/login.html?redirect=" + encodeURI(window.location);
             }
         });
         runAuth();
