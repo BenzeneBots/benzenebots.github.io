@@ -411,13 +411,27 @@ section#sponsors .row {
 }
 
 .grid-item {
-    width: 20%;
-}
-
-.grid-item--width2 {
-    width: 40%;
+    width: 400px;
+    margin-bottom: 10px
 }
 
 .grid-item img {
     width: 100%;
+}
+
+#drop-area {
+    border:rgba(255, 255, 255, 0.1) 3px dashed;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 5px;
+    height: 140px;
+}
+
+#drop-area form {
+    position: absolute;
+}
+
+#drop-area.highlight {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
 }

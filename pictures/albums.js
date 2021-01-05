@@ -1,3 +1,5 @@
+let allmsn = [];
+
 const loadAlbums = async () => {
     let manifest = await fetch(API_ROOT + '/gallery', {}).then((res) => res.json());
     let out = document.getElementById('out');
@@ -12,12 +14,6 @@ const loadAlbums = async () => {
         g.classList.add('grid');
         out.appendChild(g);
 
-        let s = document.createElement('div');
-        s.classList.add('grid-sizer');
-        s.classList.add('col');
-        s.classList.add('s1');
-        g.appendChild(s);
-
         for (let img of album.images) {
             let i = document.createElement('img');
             i.classList.add('grid-item');
@@ -27,10 +23,13 @@ const loadAlbums = async () => {
     }
 
     document.querySelectorAll('.grid').forEach((elm) => {
-        new Masonry(elm, {
-            itemSelector: '.grid-item',
-            columnWidth: '.grid-sizer',
-            percentPosition: true
+        imagesLoaded(elm, () => {
+            allmsn.push(new Masonry(elm, {
+                itemSelector: '.grid-item',
+                columnWidth: 400,
+                gutter: 10,
+                horizontalOrder: true
+            }));
         });
     });
 };
