@@ -27,8 +27,7 @@ const loadAlbums = async () => {
             allmsn.push(new Masonry(elm, {
                 itemSelector: '.grid-item',
                 columnWidth: 400,
-                gutter: 10,
-                horizontalOrder: true
+                gutter: 10
             }));
         });
     });
