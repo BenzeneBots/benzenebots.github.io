@@ -88,8 +88,8 @@ const generatePost = (post, standalone = false, admin = false) => {
     b.classList.add('post-body');
     b.innerHTML = md(post.content, {breaks: true});
     if (admin) b.innerHTML += `<div class="row post-controls">
-    <a href="/admin/editPost.html?id=${post.id}" class="btn red darken-3">Edit</a>
-    <a href="/admin/deletePost.html?id=${post.id}" class="btn red darken-3">Delete</a>
+    <a href="/admin/blog/edit.html?id=${post.id}" class="btn red darken-3">Edit</a>
+    <a href="/admin/blog/delete.html?id=${post.id}" class="btn red darken-3">Delete</a>
     </div>`;
     elm.appendChild(b);
 

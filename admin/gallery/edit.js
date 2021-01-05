@@ -5,6 +5,7 @@ let album = {
     images: []
 }
 let dropzone = document.getElementById('drop-area');
+let uploading = false;
 
 const uploadFile = async (file) => {
     let formData = new FormData()
@@ -22,6 +23,7 @@ const uploadFile = async (file) => {
 
 const dropHandler = async (ev) => {
     ev.preventDefault();
+    uploading = true;
 
     M.toast({
         html: 'Uploading... Please wait'
@@ -43,6 +45,7 @@ const dropHandler = async (ev) => {
     Promise.all(uploads).then(() => {
         getAlbum(album.id);
         M.toast({ html: 'Done!' })
+        uploading = false;
     });
 }
 
@@ -59,3 +62,12 @@ const dragOverHandler = (ev) => {
 const getAlbum = async (id) => {
     album = (await fetch(API_ROOT + '/gallery/' + id).then((res) => res.json())).album;
 }
+
+window.addEventListener("beforeunload", function (e) {
+    if (uploading) {
+        var confirmationMessage = 'Images are still uploading, if you leave now your changes will not be saved';
+
+        (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+        return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+    }
+});

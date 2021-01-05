@@ -27,7 +27,8 @@ window.addEventListener('navload', async () => {
     }
 
     editor = ace.edit('editor');
-    editor.session.setUseWrapMode(true)
+    editor.session.setUseWrapMode(true);
+    editor.setFontSize(14);
     editor.setTheme('ace/theme/twilight');
     editor.session.setMode('ace/mode/markdown');
 
