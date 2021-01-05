@@ -47,9 +47,11 @@ addSubmitListener();
 setTimeout(addSubmitListener, 1e3);
 setTimeout(addSubmitListener, 3e3);
 
-window.addEventListener('auth', (evt) => {
+const REDIRECT = window.location.toString().split('redirect=')[1];
+
+window.addEventListener('auth', () => {
     if (auth) {
-        window.location.href = "/admin/";
+        window.location.href = REDIRECT || "/admin/";
     }
 });
 runAuth();
