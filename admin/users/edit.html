@@ -33,33 +33,37 @@
         </div>
         <div class="grey darken-3">
             <div class="container">
-                <div class="row">
-                    <div class="input-field col s12 m6">
-                        <input type="email" id="email" name="email">
-                        <label for="email">Email</label>
+                <form id="edit-user">
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input type="text" id="email" name="email">
+                            <label for="email">Email/Username</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input type="text" id="name" name="name">
+                            <label for="name">Name</label>
+                        </div>
                     </div>
-                    <div class="input-field col s12 m6">
-                        <input type="text" id="name" name="name">
-                        <label for="name">Name</label>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input type="password" id="password" name="password" value="placeholder">
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <select id="role" name="role">
+                                <option value="0">Admin</option>
+                                <option value="1">Editor</option>
+                                <option value="2">View Only</option>
+                            </select>
+                            <label for="role">Role</label>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m6">
-                        <input type="password" id="password" name="password" value="password">
-                        <label for="password">Password</label>
+                    <div class="row">
+                        <div class="col s12" style="margin-bottom: 10px">
+                            <a href="#" id="submit" class="btn red darken-3">Save</a>
+                        </div>
                     </div>
-                    <div class="input-field col s12 m6">
-                        <select id="role" name="role">
-                            <option value="0">Admin</option>
-                            <option value="1">Editor</option>
-                            <option value="2">View Only</option>
-                        </select>
-                        <label for="role">Role</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12" style="margin-bottom: 10px"><a href="#" id="submit" class="btn red darken-3">Save</a></div>
-                </div>
+                </form>
             </div>
         </div>
     </main>
@@ -71,7 +75,20 @@
             if (!auth) {
                 window.location.href = "/admin/login.html?redirect=" + encodeURI(window.location);
             }
-            getUser();
+            if (USER_ID) {
+                getUser()
+                document.getElementById('edit-user').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    updateUser();
+                });
+            } else {
+                document.getElementById('password').value = '';
+                setTimeout(() => M.FormSelect.init(document.getElementById('role'), {}), 3e3);
+                document.getElementById('edit-user').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    createUser();
+                });
+            }
         });
 
         runAuth();

@@ -53,3 +53,67 @@ const getUser = async () => {
         });
     }
 }
+
+const userObj = async () => {
+    let password = document.getElementById('password').value;
+    if (password === 'placeholder') {
+        return {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            role: document.getElementById('role').parentElement.children[3].value
+        }
+    }
+
+    let hashedPassword = await new Promise((resolve, reject) => crypto.subtle.digest('SHA-256',
+            (new TextEncoder()).encode(password))
+        .then(hash => {
+            resolve(Array.prototype.map.call(new Uint8Array(hash), x => ('00' + x.toString(16)).slice(-2)).join(''));
+        }));
+
+    return {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        role: document.getElementById('role').parentElement.children[3].value,
+        password: hashedPassword
+    }
+}
+
+const createUser = async () => {
+    let json = await fetch(API_ROOT + '/user/', {
+            method: 'POST',
+            headers: {
+                id: auth.id,
+                password: auth.password
+            },
+            body: JSON.stringify(await userObj())
+        })
+        .then(res => res.json());
+
+    if (json.user) {
+        window.location.href = '/admin/user';
+    } else {
+        M.toast({
+            html: json.error
+        });
+    }
+}
+
+const updateUser = async () => {
+    let json = await fetch(API_ROOT + '/user/' + USER_ID, {
+            method: 'POST',
+            headers: {
+                id: auth.id,
+                password: auth.password
+            },
+            body: JSON.stringify(userObj())
+        })
+        .then(res => res.json());
+
+    if (json.user) {
+        window.location.href = '/admin/user';
+    } else {
+        M.toast({
+            html: json.error
+        });
+    }
+}
