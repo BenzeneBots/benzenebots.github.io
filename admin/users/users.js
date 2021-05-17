@@ -19,9 +19,9 @@ const getAllUsers = async () => {
                     <td>${user.email}</td>                       
                     <td>${ROLES[user.role]}</td>                        
                     <td><a class="btn red darken-3" href="/admin/users/edit.html?id=${user.id}">Edit</a></td>                       
+                    <td><button class="btn red darken-3" onclick="Delete(this)" userId="${user.id}">Delete</a></td>
                 </tr>`
-        }
-        document.getElementById("out").innerHTML = out;
+        }        document.getElementById("out").innerHTML = out;
     } else {
         M.toast({
             html: json.error
@@ -88,18 +88,21 @@ const userObj = async () => {
 }
 
 const createUser = async () => {
-    let json = await fetch(API_ROOT + '/user/' + USER_ID, {
-            method: 'GET',
+    let send = await userObj()
+    console.log(JSON.stringify(send))
+    let json = await fetch(API_ROOT + '/user/' , {
+            method: 'POST',
             headers: {
+                'Content-Type': "application/json",
                 id: auth.id,
                 password: auth.password
             },
-            body: JSON.stringify(await userObj())
+            body: JSON.stringify(send)
         })
         .then(res => res.json());
 
     if (json.user) {
-        window.location.href = '/admin/user';
+        window.location.href = '/admin/users';
     } else {
         M.toast({
             html: json.error
@@ -130,4 +133,17 @@ const updateUser = async () => {
             html: json.error
         });
     }
+}
+
+const Delete = (element) => {
+    fetch(API_ROOT + "/user/delete/" + element.getAttribute("userid"), {
+        method: "DELETE",
+        headers: {
+            id: auth.id,
+            password: auth.password
+        }
+    }).then(res => {
+        window.location = "/admin/users/"
+    })
+
 }
