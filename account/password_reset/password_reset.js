@@ -3,6 +3,9 @@ let params = {}
 function confirmPass()  {
     if (document.getElementById("confirm_password").value !== document.getElementById("new_password").value) {
         document.getElementById("password-error").innerText = "Passwords don't match"
+        setInterval(() => {
+            document.getElementById("password-error").innerText = " ";
+        },3000)
         return false
     }
     else {
@@ -86,6 +89,12 @@ async function handleFormSubmit() {
                     text: err.message
                 });
             });
+    }
+    else {
+        document.getElementById("password-error").innerText = "Passwords don't match"
+        setInterval(() => {
+            document.getElementById("password-error").innerText = " ";
+        },3000)
     }
 }
 
