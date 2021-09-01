@@ -1,10 +1,10 @@
-const API_ROOT = "https://test-backend-for-benze.herokuapp.com"; //'https://api.benzenebots.com';
+const API_ROOT = "https://test-backend-for-benze.herokuapp.com";
 
 let navLoadEvent = new Event('navload');
 let pathname = window.location.pathname.split('/');
 delete pathname[pathname.length - 1];
 pathname = pathname.join('/');
-
+console.log(API_ROOT)
 const loadNav = () => {
     if (!pathname.startsWith('/admin/')) document.querySelector(`nav li a[href="${pathname}"]`).parentNode.classList.add('active');
     M.Dropdown.init(document.querySelectorAll('.dropdown-trigger'), {
