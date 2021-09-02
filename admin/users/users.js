@@ -10,9 +10,9 @@ const getAllUsers = async () => {
         })
         .then(res => res.json());
 
-    if (json.users) {
+    if (json) {
         let out = '';
-        for (let user of json.users) {
+        for (let user of json) {
             out += `<tr>
                     <td>${user.id}</td>                        
                     <td>${user.name}</td>                        
@@ -39,13 +39,13 @@ const getUser = async () => {
         })
         .then(res => res.json());
 
-    if (json.user) {
+    if (json) {
 
-        document.getElementById('name').value = json.user.name;
-        document.getElementById('email').value = json.user.email;
+        document.getElementById('name').value = json.name;
+        document.getElementById('email').value = json.email;
 
         for (let i of document.getElementById('role').children) {
-            if (i.value === json.user.role.toString()) i.selected = 'true';
+            if (i.value === json.role.toString()) i.selected = 'true';
         }
         setTimeout(() => M.FormSelect.init(document.getElementById('role'), {}), 3e3);
     } else {
@@ -101,7 +101,7 @@ const createUser = async () => {
         })
         .then(res => res.json());
 
-    if (json.user) {
+    if (json) {
         window.location.href = '/admin/users';
     } else {
         M.toast({
