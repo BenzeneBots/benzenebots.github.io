@@ -10,7 +10,7 @@ const getAllUsers = async () => {
         })
         .then(res => res.json());
 
-    if (json.users) {
+    if (json) {
         let out = '';
         for (let user of json.users) {
             out += `<tr>
