@@ -83,7 +83,7 @@ const userObj = async () => {
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
         role: role,
-        //password: hashedPassword
+        password: hashedPassword
     }
 }
 
