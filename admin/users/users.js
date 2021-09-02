@@ -12,7 +12,7 @@ const getAllUsers = async () => {
 
     if (json) {
         let out = '';
-        for (let user of json.users) {
+        for (let user of json) {
             out += `<tr>
                     <td>${user.id}</td>                        
                     <td>${user.name}</td>                        
