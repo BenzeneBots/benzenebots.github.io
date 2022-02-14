@@ -15,7 +15,46 @@
 
     <script src="/partials/loader.js"></script>
 </head>
+<style>
+    .blg-list {
+        height: 100px;
+        border-radius: 10px;
+        background: rgba(57, 57, 57, 0.5);
+        border-style: solid;border-color: rgb(0, 0, 0);
+    }
 
+    tr a {
+        display:block;
+        width:100%;
+    }
+
+    th {
+        font-size: 120%;
+        color: #c62828;
+    }
+
+    td, th {
+        padding: 15px 5px;
+        border-radius: 0px;
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    .blog-tags a {
+        background: red;
+        border-radius: 100px;
+        width: 10%;
+        overflow: hidden;
+        margin: 0 2px;
+        padding: 4px 10px;
+        color: #fff;
+        font-size: 80%;
+        font-family: sans-serif;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+</style>
 <body>
     <nav>
         <div class="nav-wrapper black" id="nav">
@@ -26,7 +65,50 @@
     </ul>
 
     <main>
-        <div class="container" id="out">
+        <h3 class="center">Blogs</h3>
+        <br>
+
+        <div class="container">
+            <table class="highlight">
+                <thead>
+                <tr>
+                    <th>Topic</th>
+                    <th>Category</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+
+                    <td style="width: 100%;">
+                        <span>
+                            <a class="blog-list-link" href="/aboutus/">Jan update Jan 13</a>
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            <a class="blog-list-link" href="/aboutus/">Update</a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100%;">
+                        <span>
+                            <a class="blog-list-link" href="/aboutus/">Jan update Jan 13</a>
+                        </span>
+                    </td>
+                    <td>Update</td>
+                </tr>
+                <tr>
+                    <td style="width: 100%;">
+                        <span>
+                            <a class="blog-list-link" href="/aboutus/">Jan update Jan 13</a>
+                        </span>
+                    </td>
+                    <td>Update</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </main>
 
