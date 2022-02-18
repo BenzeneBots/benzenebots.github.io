@@ -18,6 +18,25 @@
 
 </head>
 
+<style>
+
+    figure.align-left {
+        float: left;
+    }
+
+    figure.align-right {
+        float: right;
+    }
+
+    figure.image figcaption {
+        margin: 0px;
+        color: rgba(182, 182, 182, 0.77);
+        text-align: center;
+    }
+
+
+</style>
+
 <body>
 <nav>
     <div class="nav-wrapper black" id="nav">
@@ -95,7 +114,7 @@
                             <a href="#" id="title-preview"></a>
                         </h3>
                         <div class="post-published-date" id="date"></div>
-                        <div class="post-body" id="preview"></div>
+                        <div class="post-body" style="word-wrap: break-word;" id="preview"></div>
                     </div>
                 </div>
             </div>
@@ -112,72 +131,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-markdown.min.js" type="text/javascript"
         charset="utf-8"></script>
 
-
-<script>
-
-    tinyMCE.remove('textarea')
-    tinymce.init({
-        selector: 'textarea',
-        plugins: [
-            'advlist autolink lists link image charmap print preview anchor',
-            'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table paste imagetools wordcount',
-            'codesample emoticons media wordcount'
-        ],
-        toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media| emoticons codesample wordcount ',
-        editor: "restore_draft",
-        toolbar_mode: 'floating',
-        automatic_uploads: true,
-        image_title: true,
-        file_picker_types: 'image',
-        file_picker_callback: function (cb, value, meta) {
-            var input = document.createElement('input');
-            input.setAttribute('type', 'file');
-            input.setAttribute('accept', 'image/*');
-
-            input.onchange = function () {
-                var file = this.files[0];
-
-                var reader = new FileReader();
-                reader.onload = async function () {
-                    const formData = new FormData()
-                    formData.append('image', file)
-
-                    let data = await fetch('https://api.benzenebots.com/store/upload', {
-                        method: 'POST',
-                        "headers": {
-                            "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-                            "id": "a34de56a-bb3a-483a-8d96-e95f885b3396",
-                        },
-                        body: formData
-                    })
-                    let json = await data.json();
-
-                    cb("https://api.benzenebots.com/"+json.id, { title: file.name });
-                };
-
-//
-                reader.readAsDataURL(file);
-            };
-
-            input.click();
-        },
-        branding: false,
-        skin: "oxide-dark",
-        icons: "thin",
-        content_css: "dark",
-    });
+<script type="text/javascript">
+    var script = document.createElement('script');
+    var version = new Date().getTime();
+    script.src = "/admin/blog/edit.js?v="+version;
+    document.body.appendChild(script)
 </script>
-<script>
-    tinymce.on( 'addeditor', e => {
-
-
-        setInterval(function (inst) {
-            document.getElementById('preview').innerHTML = tinymce.activeEditor.getContent()
-        }, 100);
-    }, true );
-</script>
-
 <script>
     const POST_ID = window.location.toString().split('id=')[1];
 
@@ -188,7 +147,7 @@
             window.location.href = "/admin/login.html?redirect=" + encodeURI(window.location);
         }
     });
-    runAuth();
+   // runAuth();
 </script>
 </body>
 
