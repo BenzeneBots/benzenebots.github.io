@@ -12,6 +12,7 @@
 
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://www.jsdelivr.com/package/npm/moment"></script>
 
     <script src="/partials/loader.js"></script>
 </head>
@@ -25,7 +26,7 @@
 
     tr a {
         display:block;
-        width:100%;
+        width:90%;
     }
 
     th {
@@ -55,7 +56,9 @@
         text-transform: uppercase;
     }
 </style>
+
 <body>
+
     <nav>
         <div class="nav-wrapper black" id="nav">
         </div>
@@ -64,16 +67,19 @@
     <ul class="sidenav grey darken-4" id="mobile-nav">
     </ul>
 
+
     <main>
         <h3 class="center">Blogs</h3>
         <br>
 
-        <div class="container">
-            <table class="highlight">
+        <div id="blog-main" class="container">
+
+            <table id="blog-list" class="highlight">
                 <thead>
                 <tr>
                     <th>Topic</th>
                     <th>Category</th>
+                    <th>Published</th>
                 </tr>
                 </thead>
 
@@ -96,7 +102,16 @@
     </script>
     <script>
         window.addEventListener('auth', (evt) => {
-            if (auth) blogList(auth.role < 2);
+            if (auth) {
+                blogList(auth.role < 2)
+                let postBtn = document.createElement("a")
+                postBtn.href = "/blog/post-edit.html"
+                postBtn.className = "btn red darken-3"
+                postBtn.style.marginLeft = "5px"
+                postBtn.id = "new-post"
+                postBtn.innerText = "New Post"
+                document.getElementById("blog-main").insertBefore(postBtn,document.getElementById("blog-list"))
+            }
             else blogList(false);
         });
         runAuth();

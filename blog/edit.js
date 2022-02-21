@@ -15,13 +15,13 @@ let postModified = post;
 // TinyMCE functions
 function editorRefresh() {
     let editorContent = tinymce.activeEditor.getContent();
-   // document.getElementById('preview').innerHTML = editorContent
+    document.getElementById("content").innerHTML = editorContent
     localStorage.setItem("blog_draft",editorContent)
 }
 
 function editorInit() {
     if (localStorage.getItem("blog_draft") !== null) tinymce.activeEditor.setContent(localStorage.getItem("blog_draft"));
-   // document.getElementById('preview').innerHTML = localStorage.getItem("blog_draft")
+    document.getElementById("content").innerHTML = localStorage.getItem("blog_draft")
     editorRefresh();
 }
 
@@ -85,7 +85,7 @@ let configTinyMCE = {
     },
     setup : function(editor) {
         editor.on('init', editorInit);
-        editor.on('Paste Change input Undo Redo', function(e) {
+        editor.on('Paste Change NodeChange Input Undo Redo', function(e) {
             editorRefresh()
         });
         editor.ui.registry.addButton('gallery', {

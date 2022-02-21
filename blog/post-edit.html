@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -12,7 +13,7 @@
 
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+    <script src="https://cdn.tiny.cloud/1/m0nda9niinb7ioc5ghl0ywb2z99uma0r8umbjafpd9xdyvo0/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="/partials/loader.js"></script>
 </head>
 <style>
@@ -54,6 +55,10 @@
         text-decoration: none;
         text-transform: uppercase;
     }
+
+    .tox-tinymce{
+        height: 90vh !important;
+    }
 </style>
 <body>
 <nav>
@@ -63,49 +68,35 @@
 
 <ul class="sidenav grey darken-4" id="mobile-nav">
 </ul>
-
+<div class="container" style="width: 24%; top: 7%; position: fixed; left: 75%">
+<textarea style="height: 100%">
+                        Welcome to TinyMCE!
+</textarea>
+</div>
 <main style="display: grid; justify-items: center">
     <section id="content" class="" style="width: 50%; left: 30%">
-        <div id="comments" style="width: 100%">
-            <div class="row">
-                <div class="input-field col s6">
-                    <input id="email" type="email">
-                    <label for="email">Email</label>
-                </div>
-            </div>
-        </div>
+
     </section>
-
 </main>
-
 
 <script src="/admin/auth.js"></script>
 <script src="https://momentjs.com/downloads/moment.min.js"></script>
 <script src="https://unpkg.com/md@0.6.0/dist/md.min.js"></script>
-<script src="blog.js"></script>
+<script type="text/javascript">
+    var script = document.createElement('script');
+    var version = new Date().getTime();
+    script.src = "/blog/edit.js?v="+version;
+    document.body.appendChild(script)
+</script>
 <script>
     window.addEventListener('auth', (evt) => {
-        if (auth) blogList(auth.role < 2);
-        else blogList(false);
+        if (!auth) {
+            window.location.href = "/blog";
+        }
+
     });
     runAuth();
 
-    if (window.location.href.split("?id=")) {
-        fetch("https://api.benzenebots.com/post/"+window.location.href.split("?id=")[1]).then(async data  =>  {
-            let json = await data.json();
-            let div = document.createElement("div")
-                div.innerHTML = json.post.content
-            document.getElementById("content").insertBefore(div,document.getElementById("comments"))
-        })
-        .catch(err => {
-            console.log(err)
-        });
-
-    }
-    else {
-        window.location.href ="/blog/"
-        generateCards()
-    }
 
 </script>
 </body>
