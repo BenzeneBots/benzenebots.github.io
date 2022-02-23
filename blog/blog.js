@@ -10,7 +10,10 @@ const published_date = (published_date) => {
     var diff = moment.duration(current.diff(given)).asDays() + 1
     var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
 
-    if (diff === 1) {
+    if (diff < 1) {
+        return `Today`;
+    }
+    else if (diff === 1) {
         return `${diff} Day Ago`;
     }
     else if (diff <= 5 && diff > 1) {

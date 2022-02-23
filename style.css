@@ -354,6 +354,11 @@ section#sponsors .row {
     font-size: 22px;
     vertical-align: -6px;
 }
+.test .material-icons {
+    font-size: 22px;
+    vertical-align: -6px;
+    line-height: inherit;
+}
 
 .post-controls {
     margin-top: 15px;
