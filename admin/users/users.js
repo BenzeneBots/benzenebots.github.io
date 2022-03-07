@@ -12,7 +12,7 @@ const getAllUsers = async () => {
 
     if (json) {
         let out = '';
-        for (let user of json) {
+        for (let user of json.users) {
             out += `<tr>
                     <td>${user.id}</td>                        
                     <td>${user.name}</td>                        
@@ -89,7 +89,7 @@ const userObj = async () => {
 
 const createUser = async () => {
     let send = await userObj()
-    console.log(JSON.stringify(send))
+
     let json = await fetch(API_ROOT + '/user/' , {
             method: 'POST',
             headers: {

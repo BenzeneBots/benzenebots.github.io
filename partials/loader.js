@@ -1,4 +1,4 @@
-const API_ROOT = "https://api.benzenebots.com"; //'https://api.benzenebots.com';
+const API_ROOT = 'https://api.benzenebots.com' //"https://test-backend-for-benze.herokuapp.com";
 
 let navLoadEvent = new Event('navload');
 let pathname = window.location.pathname.split('/');
