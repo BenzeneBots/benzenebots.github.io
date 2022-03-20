@@ -41,13 +41,13 @@ const getUser = async () => {
 
     if (json) {
 
-        document.getElementById('name').value = json.name;
-        document.getElementById('email').value = json.email;
+        document.getElementById('name').value = json.user.name;
+        document.getElementById('email').value = json.user.email;
 
         for (let i of document.getElementById('role').children) {
-            if (i.value === json.role.toString()) i.selected = 'true';
+            if (i.value === json.user.role.toString()) i.selected = 'true';
         }
-        setTimeout(() => M.FormSelect.init(document.getElementById('role'), {}), 3e3);
+        setTimeout(() => M.FormSelect.init(document.getElementById('role'), {}), 3);
     } else {
         M.toast({
             html: json.error
