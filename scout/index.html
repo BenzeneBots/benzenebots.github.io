@@ -1,0 +1,271 @@
+<html>
+
+<head>
+    <title>Benzene Bots | Scouting</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Oswald&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="/partials/loader.js"></script>
+</head>
+<style>
+    /* Hide the browser's default checkbox */
+    .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+        border-radius: 50%;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .container:hover input ~ .checkmark {
+        background-color: #ccc;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .container input:checked ~ .checkmark {
+        background-color: #2196F3;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .container input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .container .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+        background-color: #C62828 !important;
+    }
+    [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+        border: 2px solid #811a1a;
+    }
+
+    .backgroundBox {
+        border-radius: 10px;padding-left: 39px;padding-top: 20px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        text-transform: none
+    }
+    
+    h5 {
+        display: block;
+        padding-bottom: 24px;
+        padding-right: 24px;
+        width: 100%
+    }
+
+    .radioE {
+        display: block;
+        padding-bottom: 24px;
+        width: 100%;
+        text-overflow: ellipsis;
+    }
+    
+    
+    label {
+        display: block;
+        padding-bottom: 24px;
+        width: 100%
+    }
+
+</style>
+<body>
+    <nav>
+        <div class="nav-wrapper black" id="nav">
+        </div>
+    </nav>
+
+    <ul class="sidenav grey darken-4" id="mobile-nav">
+    </ul>
+
+    <main>
+        <section>
+            <div class="row" style="width: 50%">
+                <h2 style="text-align: center;" class="red-text text-darken-3">Scouting</h2>
+                <form class="col s12">
+                    <div class="row grey darken-4 backgroundBox">
+                        <h5>Team Number</h5>
+                        <div class="input-field col s6">
+                            <input id="team_number" type="text">
+                            <label for="team_number">Team Number</label>
+                        </div>
+                    </div>
+
+                    <div class="row grey darken-4 backgroundBox">
+                        <h5>Scouter Name</h5>
+                        <div class="input-field col s6">
+                            <input id="scouter_name" type="text">
+                            <label for="scouter_name">Scouter</label>
+                        </div>
+                    </div>
+
+                    <div class="row grey darken-4 backgroundBox">
+                        <h5>What is your robot's drive train/drive system</h5>
+                        <label>
+                            <input class="red" name="group1" type="radio"/>
+                            <span>Swerve Drive</span>
+                        </label>
+                        <label>
+                            <input name="group1" type="radio"/>
+                            <span>Tank Drive</span>
+                        </label>
+                        <label>
+                            <input name="group1" type="radio"/>
+                            <span>Mecanum Drive</span>
+                        </label>
+                        <label>
+                            <input name="group1" type="radio"/>
+                            <span>Robot is only a chassi</span>
+                        </label>
+                    </div>
+
+                    <div class="row grey darken-4 backgroundBox">
+                        <h5>What does your robot do during the autonomous period?</h5>
+                        <div class="input-field col s6">
+                            <input id="AutonAnswer" type="text">
+                            <label for="AutonAnswer">Your Answer</label>
+                        </div>
+                    </div>
+
+                    <div class="row grey darken-4 backgroundBox">
+                        <h5>What part of the hub does your robot shoot on?</h5>
+                        <label>
+                            <input class="red" name="group1" type="radio"/>
+                            <span>Upper Hub</span>
+                        </label>
+                        <label>
+                            <input name="group1" type="radio"/>
+                            <span>Lower Hub</span>
+                        </label>
+                        <label>
+                            <input name="group1" type="radio"/>
+                            <span>Both</span>
+                        </label>
+                    </div>
+
+                    <div class="row grey darken-4 backgroundBox">
+                        <h5>How many shots does your robot take during Tele-op period? How many does your robot make?</h5>
+                        <div class="input-field col s6">
+                            <input id="ShotsAnswer" type="text">
+                            <label for="ShotsAnswer">Your Answer</label>
+                        </div>
+                    </div>
+
+                    <div class="row grey darken-4 backgroundBox">
+                        <h5>Rate the driver :</h5>
+                        <label>
+                            <input class="red" name="group1" type="radio"/>
+                            <span class="radioE">1 (being complete garbage)</span>
+                        </label>
+                        <label>
+                            <input name="group1" type="radio"/>
+                            <span class="radioE">2 (being bad)</span>
+                        </label>
+                        <label>
+                            <input name="group1" type="radio"/>
+                            <span class="radioE">3 (being ok)</span>
+                        </label>
+                        <label>
+                            <input name="group1" type="radio"/>
+                            <span class="radioE">4 (being good)</span>
+                        </label>
+                        <label>
+                            <input name="group1" type="radio"/>
+                            <span class="radioE">5 (being extremely good)</span>
+                        </label>
+                    </div>
+
+                    <div class="row grey darken-4 backgroundBox">
+                        <h5>Is your driver offensive or defensive?</h5>
+                        <label>
+                            <input class="red" name="group1" type="radio"/>
+                            <span class="radioE">Offensive</span>
+                        </label>
+                        <label>
+                            <input name="group1" type="radio"/>
+                            <span class="radioE">Defensive</span>
+                        </label>
+                    </div>
+
+                    <div class="row grey darken-4 backgroundBox">
+                        <h5>During endgame does the robot climb?</h5>
+                        <label>
+                            <input class="red" name="group1" type="radio"/>
+                            <span class="radioE">Yes</span>
+                        </label>
+                        <label>
+                            <input name="group1" type="radio"/>
+                            <span class="radioE">No</span>
+                        </label>
+                    </div>
+
+                    <div class="row grey darken-4 backgroundBox">
+                        <h5>If the robot can climb, until which bar can it climb till?</h5>
+                        <label>
+                            <input class="red" name="group1" type="radio"/>
+                            <span class="radioE">1st Bar (Low)</span>
+                        </label>
+                        <label>
+                            <input name="group1" type="radio"/>
+                            <span class="radioE">2nd Bar (Mid)</span>
+                        </label>
+                        <label>
+                            <input class="red" name="group1" type="radio"/>
+                            <span class="radioE">3rd Bar (High)</span>
+                        </label>
+                        <label>
+                            <input name="group1" type="radio"/>
+                            <span class="radioE">4th Bar (Traversal)</span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
