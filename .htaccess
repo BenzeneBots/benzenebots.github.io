@@ -2,7 +2,7 @@
   Header set Expires "Thu, 6 Apr 2029 20:00:00 GMT"
 </FilesMatch>
 <IfModule mod_expires.c>
-  ExpiresActive on
-  ExpiresByType text/css                  "access 1 second"
-  ExpiresByType application/javascript    "access 1 second"
+    ExpiresActive On
+    ExpiresDefault A1
+    Header append Cache-Control must-revalidate
 </IfModule>
