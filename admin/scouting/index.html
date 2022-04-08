@@ -16,12 +16,29 @@
     <script src="/partials/loader.js"></script>
 </head>
 <style>
-    table, tr, th {
+    /* table, tr, th {
         border: 3px solid #C62828;
     }
     tbody, th, td {
         border: 1px solid;
+    } */
+
+    .key th {
+        text-align: center;
     }
+
+    table tbody tr th {
+        text-align: center;
+    }
+
+    .off {
+        background: red;
+    }
+
+    .on {
+        background: transparent;
+    }
+
 </style>
 <body>
 <nav>
@@ -35,24 +52,8 @@
 <main>
 
     <div class="">
-        <div class="container">
-            <table class="centered">
-                <tr>
-                    <th>Team Number</th>
-                    <th>Scouter</th>
-                    <th>Auton</th>
-                    <th>Climb</th>
-                    <th>Climb Bar</th>
-                    <th>Drive Train</th>
-                    <th>Driving Rating</th>
-                    <th>Robot Type</th>
-                    <th>Shooting Hub</th>
-                    <th>Shots</th>
-                </tr>
-                <tbody id="out">
+        <div class="container" id="out">
 
-                </tbody>
-            </table>
         </div>
     </div>
 </main>
@@ -68,7 +69,7 @@
         if (!auth) {
             window.location.href = "/admin/login.html?redirect=" + encodeURI(window.location);
         }
-        getResponsesByTeamNumber();
+        getResponsesByEvent();
     });
 
     runAuth();

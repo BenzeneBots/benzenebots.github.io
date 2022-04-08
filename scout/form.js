@@ -62,7 +62,7 @@ const submit_form = () => {
             password: localStorage.password
         },
         body: JSON.stringify({
-            comp: "States Rapid React",
+            comp: district_key,
             data: data
         })
     })

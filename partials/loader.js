@@ -1,4 +1,5 @@
 const API_ROOT = 'https://api.benzenebots.com' //"https://test-backend-for-benze.herokuapp.com";
+const district_key = "2022micmp"
 
 let navLoadEvent = new Event('navload');
 let pathname = window.location.pathname.split('/');

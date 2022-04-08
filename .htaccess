@@ -6,3 +6,9 @@
     ExpiresDefault A1
     Header append Cache-Control must-revalidate
 </IfModule>
+# redirect from /js/m/file.min.js?params to /js/m/file.min.params.js
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(js/m/.+?)\.js\?([^\s&]+) [NC]
+RewriteRule ^ /%1.%2.js? [R=301,L]
+
+# forward from /js/m/file.min.params.js to /js/m/file.min.js?params
+RewriteRule ^(js/m/.+?\.min)\.([^.]+)\.js$ $1.js?$2 [L,QSA,NC]
