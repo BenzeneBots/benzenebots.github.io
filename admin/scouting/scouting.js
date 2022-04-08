@@ -15,7 +15,7 @@ const getResponsesByEvent = async () => {
             let team = json[team_num]
             let team_element = `<table class="centered" style="margin-bottom: 10px">
                     <tr class="key">
-                        <h1 colspan="16" class="on" style="text-align: center;" onclick="change_status(this)">${team_num}</h1>
+                        <h1 colspan="16" class="on red-text text-darken-3" style="text-align: center;" onclick="change_status(this)">${team_num}</h1>
                         <tbody id="${team_num}-out">
                             <th>Scouter</th>
                             <th>Auton</th>
