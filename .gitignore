@@ -2,3 +2,4 @@
 *.xml
 .idea/htdocs.iml
 /.idea/
+/node_modules/
