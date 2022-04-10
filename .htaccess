@@ -1,0 +1,14 @@
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)(\.gz)?$">
+  Header set Expires "Thu, 6 Apr 2029 20:00:00 GMT"
+</FilesMatch>
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault A1
+    Header append Cache-Control must-revalidate
+</IfModule>
+# redirect from /js/m/file.min.js?params to /js/m/file.min.params.js
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(js/m/.+?)\.js\?([^\s&]+) [NC]
+RewriteRule ^ /%1.%2.js? [R=301,L]
+
+# forward from /js/m/file.min.params.js to /js/m/file.min.js?params
+RewriteRule ^(js/m/.+?\.min)\.([^.]+)\.js$ $1.js?$2 [L,QSA,NC]
