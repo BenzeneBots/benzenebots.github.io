@@ -1,3 +1,12 @@
+const resError = (dispID,errorID, errorMsg) => {
+    document.getElementById(errorID).innerText = errorMsg
+    window.location.href = "/scout/form.html#"+dispID
+
+    setTimeout(() => {
+        document.getElementById(errorID).innerText = ""
+    }, 5000)
+}
+
 const submit_form = () => {
     let Team_Number = document.getElementById("team_number");
     let Scouter_Name = document.getElementById("scouter_name");
@@ -11,8 +20,8 @@ const submit_form = () => {
     let isClimb = document.getElementsByName("isClimb")
     let Climb_Bar = document.getElementsByName("climb_bar")
 
-    let error_team_number = document.getElementById("team_number_error")
-
+    let keys = ["team_number","scouter_name","auton","shots","drive_train","shooting_hub","driving_rating","robot_type","climb","climb_bar",]
+    let canSend = true;
     let data = {}
 
     data["team_number"] = Team_Number.value
@@ -22,39 +31,48 @@ const submit_form = () => {
 
     DriveTrain.forEach(((value, key) => {
         if (value.checked) {
-            data["drive_train"] = value.parentElement.childNodes[2].innerText
+            data["drive_train"] = value.parentElement.childNodes[3].innerText
         }
     }))
 
     ShootingHub.forEach(((value, key) => {
         if (value.checked) {
-            data["shooting_hub"] = value.parentElement.childNodes[2].innerText
+            data["shooting_hub"] = value.parentElement.childNodes[3].innerText
         }
     }))
 
     DrivingRating.forEach(((value, key) => {
         if (value.checked) {
-            data["driving_rating"] = value.parentElement.childNodes[2].innerText
+            data["driving_rating"] = value.parentElement.childNodes[3].innerText
         }
     }))
 
     Robot_Type.forEach(((value, key) => {
         if (value.checked) {
-            data["robot_type"] = value.parentElement.childNodes[2].innerText
+            data["robot_type"] = value.parentElement.childNodes[3].innerText
         }
     }))
 
     isClimb.forEach(((value, key) => {
         if (value.checked) {
-            data["climb"] = value.parentElement.childNodes[2].innerText
+            data["climb"] = value.parentElement.childNodes[3].innerText
         }
     }))
 
     Climb_Bar.forEach(((value, key) => {
         if (value.checked) {
-            data["climb_bar"] = value.parentElement.childNodes[2].innerText
+            data["climb_bar"] = value.parentElement.childNodes[3].innerText
         }
     }))
+
+    keys.forEach((key) => {
+        if (data[key] === undefined || data[key] === "") {
+            canSend = false
+            resError(`${key}_disp`,`${key}_error`,"Invalid Response")
+        }
+    })
+
+    if (!canSend) return
 
     fetch(API_ROOT + '/survey/add', {
         method: "POST",
@@ -67,17 +85,16 @@ const submit_form = () => {
             comp: district_key,
             data: data
         })
-    }).then((data) => {
-        if (!data.team_number) {
+    }).then((res => res.json())).then(json => {
+        if (!json.team_error) {
             window.location.href = "/scout/form_finish.html"
         }
         else {
-            error_team_number.innerText = "Invalid Team"
-            window.location.href = "/scout/form.html#team_number_disp"
+            resError("team_number_disp","team_number_error","Invalid Team")
+
         }
     }).catch(err => {
         console.error(err)
-        error_team_number.innerText = "Invalid Team"
-        window.location.href = "/scout/form.html#team_number_disp"
+        resError("team_number_disp","team_number_error","Invalid Team")
     })
 }

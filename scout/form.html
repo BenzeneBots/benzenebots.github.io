@@ -72,6 +72,7 @@
                 <h2 style="text-align: center;" class="red-text text-darken-3">Scouting</h2>
                 <p style="text-align: center;">Rapid React 2022</p>
                 <form class="col s12">
+
                     <div id="team_number_disp" class="row grey darken-4 backgroundBox">
                         <h5>Team Number</h5>
                         <a id="team_number_error" style="color: red"></a>
@@ -81,17 +82,18 @@
                         </div>
                     </div>
 
-                    <div class="row grey darken-4 backgroundBox">
+                    <div id="scouter_name_disp" class="row grey darken-4 backgroundBox">
                         <h5>Scouter Name</h5>
+                        <a id="scouter_name_error" style="color: red"></a>
                         <div class="input-field col s6">
                             <input id="scouter_name" type="text">
                             <label for="scouter_name">Scouter</label>
                         </div>
                     </div>
 
-
-                    <div class="row grey darken-4 backgroundBox">
+                    <div id="drive_train_disp" class="row grey darken-4 backgroundBox">
                         <h5>What is your robot's drive train/drive system</h5>
+                        <a id="drive_train_error" style="color: red"></a>
                         <label>
                             <input class="red" name="driveTrain" type="radio"/>
                             <span>Swerve Drive</span>
@@ -110,16 +112,18 @@
                         </label>
                     </div>
 
-                    <div class="row grey darken-4 backgroundBox">
+                    <div id="auton_disp" class="row grey darken-4 backgroundBox">
                         <h5>What does your robot do during the autonomous period?</h5>
+                        <a id="auton_error" style="color: red"></a>
                         <div class="input-field col s6">
                             <input id="AutonAnswer" type="text">
                             <label for="AutonAnswer">Your Answer</label>
                         </div>
                     </div>
 
-                    <div class="row grey darken-4 backgroundBox">
+                    <div id="shooting_hub_disp" class="row grey darken-4 backgroundBox">
                         <h5>What part of the hub does your robot shoot on?</h5>
+                        <a id="shooting_hub_error" style="color: red"></a>
                         <label>
                             <input class="red" name="shootingHub" type="radio"/>
                             <span>Upper Hub</span>
@@ -134,16 +138,18 @@
                         </label>
                     </div>
 
-                    <div class="row grey darken-4 backgroundBox">
+                    <div id="shots_disp" class="row grey darken-4 backgroundBox">
                         <h5>How many shots does your robot take during Tele-op period? How many does your robot make?</h5>
+                        <a id="shots_error" style="color: red"></a>
                         <div class="input-field col s6">
                             <input id="ShotsAnswer" type="text">
                             <label for="ShotsAnswer">Your Answer</label>
                         </div>
                     </div>
 
-                    <div class="row grey darken-4 backgroundBox">
+                    <div id="driving_rating_disp" class="row grey darken-4 backgroundBox">
                         <h5>Rate the driver :</h5>
+                        <a id="driving_rating_error" style="color: red"></a>
                         <label>
                             <input class="red" name="driver-rating" type="radio"/>
                             <span class="radioE">1 (being complete garbage)</span>
@@ -166,8 +172,9 @@
                         </label>
                     </div>
 
-                    <div class="row grey darken-4 backgroundBox">
+                    <div id="robot_type_disp" class="row grey darken-4 backgroundBox">
                         <h5>Is your driver offensive or defensive?</h5>
+                        <a id="robot_type_error" style="color: red"></a>
                         <label>
                             <input class="red" name="robot-type" type="radio"/>
                             <span class="radioE">Offensive</span>
@@ -182,8 +189,9 @@
                         </label>
                     </div>
 
-                    <div class="row grey darken-4 backgroundBox">
+                    <div id="climb_disp" class="row grey darken-4 backgroundBox">
                         <h5>During endgame does the robot climb?</h5>
+                        <a id="climb_error" style="color: red"></a>
                         <label>
                             <input class="red" name="isClimb" type="radio"/>
                             <span class="radioE">Yes</span>
@@ -194,8 +202,9 @@
                         </label>
                     </div>
 
-                    <div class="row grey darken-4 backgroundBox">
+                    <div id="climb_bar_disp" class="row grey darken-4 backgroundBox">
                         <h5>If the robot can climb, until which bar can it climb till?</h5>
+                        <a id="climb_bar_error" style="color: red"></a>
                         <label>
                             <input class="red" name="climb_bar" type="radio"/>
                             <span class="radioE">1st Bar (Low)</span>
@@ -213,6 +222,7 @@
                             <span class="radioE">4th Bar (Traversal)</span>
                         </label>
                     </div>
+
                     <div class="row">
                         <div class="col s12" style="margin-bottom: 10px">
                             <a onclick="submit_form()" id="submit" class="waves-effect waves-dark btn red darken-3">Save</a>
