@@ -1,0 +1,25 @@
+{
+  "name": "minification",
+  "version": "1.0.0",
+  "main": "minification.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "minify": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenzeneBots/benzenebots.github.io.git"
+  },
+  "dependencies": {
+    "image-extensions": "^1.1.0",
+    "minify": "^8.0.4",
+    "try-to-catch": "^3.0.1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BenzeneBots/benzenebots.github.io/issues"
+  },
+  "homepage": "https://github.com/BenzeneBots/benzenebots.github.io#readme",
+  "description": ""
+}
