@@ -233,6 +233,12 @@
         </section>
     </main>
 <script src="form.js"></script>
+<script>
+    if (!localStorage.getItem("scout")) {
+        alert(localStorage.getItem("scout"))
+        window.location.href = "/scout/index.html"
+    }
+</script>
 </body>
 
 </html>

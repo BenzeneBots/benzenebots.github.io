@@ -32,6 +32,7 @@ const getResponsesByEvent = async () => {
                     </table>
                     <hr>`
             document.getElementById("out").innerHTML += team_element;
+
             team.forEach((data) => {
                 out = `<tr>
                         <td>${data.scouter_name}</td>
