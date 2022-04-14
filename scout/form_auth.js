@@ -12,7 +12,7 @@ const validate = async () => {
             password: password.value
         })
     }).then(res => res.json())
-    console.log(data)
+
     if (data.error) {
         document.getElementById("login-error").innerText = data.error
 
