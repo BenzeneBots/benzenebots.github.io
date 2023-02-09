@@ -1,0 +1,88 @@
+<html>
+
+<head>
+    <title>Scouting - Benzene Bots</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Oswald&family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="/partials/loader.js"></script>
+</head>
+<style>
+    /* table, tr, th {
+        border: 3px solid #C62828;
+    }
+    tbody, th, td {
+        border: 1px solid;
+    } */
+
+    .key th {
+        text-align: center;
+    }
+
+    table tbody tr th {
+        text-align: center;
+    }
+
+    .off {
+        background: red;
+    }
+
+    .on {
+        background: transparent;
+    }
+
+</style>
+<body>
+<nav>
+    <div class="nav-wrapper black" id="nav">
+    </div>
+</nav>
+
+<ul class="sidenav grey darken-4" id="mobile-nav">
+</ul>
+
+<main>
+
+    <div class="">
+        <div class="container" id="out">
+            <table class="centered" style="margin-bottom: 10px">
+                <tr class="key">
+                    <h1 colspan="16" class="on red-text text-darken-3" style="text-align: center;" onclick="change_status(this)">${team_num}</h1>
+                    <tbody id="${team_num}-out">
+                    <th>Scouter</th>
+                    <th>Auton</th>
+                    <th>Climb</th>
+                    <th>Climb Bar</th>
+                    <th>Drive Train</th>
+                    <th>Driving Rating</th>
+                    <th>Robot Type</th>
+                    <th>Shooting Hub</th>
+                    <th>Shots</th>
+
+                    </tbody>
+                </tr>
+            </table>
+            <hr>
+        </div>
+    </div>
+</main>
+<script src="/admin/auth.js"></script>
+<script src="/admin/scouting/scouting.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems);
+    });
+</script>
+
+</body>
+
+</html>

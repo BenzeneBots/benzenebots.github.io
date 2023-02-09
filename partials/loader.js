@@ -1,6 +1,8 @@
 const API_ROOT = 'https://api.benzenebots.com' //"https://test-backend-for-benze.herokuapp.com";
 const district_key = "MICMP1"
 
+window.location.href = "https://www.benzenebots.org";
+
 let navLoadEvent = new Event('navload');
 let pathname = window.location.pathname.split('/');
 delete pathname[pathname.length - 1];
