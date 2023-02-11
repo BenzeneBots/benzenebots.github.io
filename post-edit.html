@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blog - Benzene Bots</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Oswald&family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/m0nda9niinb7ioc5ghl0ywb2z99uma0r8umbjafpd9xdyvo0/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="/partials/loader.js"></script>
+</head>
+<style>
+    .blg-list {
+        height: 100px;
+        border-radius: 10px;
+        background: rgba(57, 57, 57, 0.5);
+        border-style: solid;border-color: rgb(0, 0, 0);
+    }
+
+    tr a {
+        display:block;
+        width:100%;
+    }
+
+    th {
+        font-size: 120%;
+        color: #c62828;
+    }
+
+    td, th {
+        padding: 15px 5px;
+        border-radius: 0px;
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    .blog-tags a {
+        background: red;
+        border-radius: 100px;
+        width: 10%;
+        overflow: hidden;
+        margin: 0 2px;
+        padding: 4px 10px;
+        color: #fff;
+        font-size: 80%;
+        font-family: sans-serif;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .tox-tinymce{
+        height: 90vh !important;
+    }
+</style>
+<body>
+<nav>
+    <div class="nav-wrapper black" id="nav">
+    </div>
+</nav>
+
+<ul class="sidenav grey darken-4" id="mobile-nav">
+</ul>
+<div class="container" style="width: 24%; top: 7%; position: fixed; left: 75%">
+<textarea style="height: 100%">
+                        Welcome to TinyMCE!
+</textarea>
+</div>
+<main style="display: grid; justify-items: center">
+    <section id="content" class="" style="width: 50%; left: 30%">
+
+    </section>
+</main>
+
+<script src="/admin/auth.js"></script>
+<script src="https://momentjs.com/downloads/moment.min.js"></script>
+<script src="https://unpkg.com/md@0.6.0/dist/md.min.js"></script>
+<script type="text/javascript">
+    var script = document.createElement('script');
+    var version = new Date().getTime();
+    script.src = "/blog/edit.js?v="+version;
+    document.body.appendChild(script)
+</script>
+<script>
+    window.addEventListener('auth', (evt) => {
+        if (!auth) {
+            window.location.href = "/blog";
+        }
+
+    });
+    runAuth();
+
+
+</script>
+</body>
+
+</html>

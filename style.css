@@ -1,3 +1,7 @@
+:root {
+    --main-color: #c62828;
+    --main-bg-color: #131212;
+}
 body,
 p, .blog-list-link {
     font-family: 'Roboto', Arial, sans-serif;
@@ -9,7 +13,7 @@ p, .blog-list-link {
 }
 
 body {
-    background: #131212;
+    background: var(--main-bg-color);
 }
 
 main {
@@ -464,7 +468,7 @@ section#sponsors .row {
 .banner,
 .banner:after {
     -webkit-filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
-    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(0 5px 5px rgba(255, 255, 255, 0.3));
 }
 
 .banner:after {
@@ -479,8 +483,8 @@ section#sponsors .row {
 }
 .banner,
 .banner:after {
-    -webkit-filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
-    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+    -webkit-filter: drop-shadow(0 0px 5px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(0 7px 1px rgba(255, 255, 255, 0.3));
 }
 .banner img {
     margin-bottom: 10px;
