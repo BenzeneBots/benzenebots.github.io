@@ -12,6 +12,7 @@
 
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="/partials/loader.js"></script>
 </head>
@@ -28,8 +29,43 @@
     <main>
         <div class="container center" style="margin-top: 50px">
             <img src="/img/demographics.webp" class="responsive-img">
+            <canvas id="myCasdfasdfasdfhart"></canvas>
         </div>
     </main>
+
+
+    <script>
+        setTimeout(function () {
+            console.log("Done")
+            var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+            var yValues = [55, 49, 44, 24, 15];
+            var barColors = [
+                "#b91d47",
+                "#00aba9",
+                "#2b5797",
+                "#e8c3b9",
+                "#1e7145"
+            ];
+            var ctx = document.getElementById('myCasdfasdfasdfhart'); // 2d context
+            new Chart(ctx, {
+                type: "doughnut",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: "World Wide Wine Production 2018"
+                    }
+                }
+            });
+        },1000)
+
+    </script>
 
 </body>
 

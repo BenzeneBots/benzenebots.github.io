@@ -14,6 +14,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     
     <script src="/partials/loader.js"></script>
+
+    <style>
+        .table-content:hover {
+            color: #c62828;
+        }
+
+        #table-of-contents li {
+            margin-bottom: 40%;
+        }
+
+        .table-content {
+            text-transform: uppercase;
+            font-family: 'Oswald', Arial, sans-serif;
+            font-size: 1.33rem;
+            line-height: 110%;
+            margin: 1.52rem 0 0.912rem 0;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,6 +40,19 @@
         <div class="nav-wrapper black" id="nav">
         </div>    
     </nav>
+    <ul id="table-of-contents" class="right hide-on-med-and-down" style="padding-right: 5%;
+    padding-top: 2%; text-align: center">
+        <li style="text-align: right"><h4 style="color: #c62828;">Years</h4> </li>
+        <li><a class="table-content" href="#2022">2022</a></li>
+        <li><a class="table-content" href="#2019">2019</a></li>
+        <li><a class="table-content" href="#2018">2018</a></li>
+        <li><a class="table-content" href="#2017">2017</a></li>
+        <li><a class="table-content" href="#2016">2016</a></li>
+        <li><a class="table-content" href="#2015">2015</a></li>
+        <li><a class="table-content" href="#2014">2014</a></li>
+        <li><a class="table-content" href="#2013">2013</a></li>
+        <li><a class="table-content" href="#2012">2012</a></li>
+    </ul>
 
     <ul class="sidenav grey darken-4" id="mobile-nav">
     </ul>
@@ -29,94 +61,178 @@
         <div class="container awards bigger-text">
             <h2>Award History</h2>
 
-            <h4>2019</h4>
-            <p>FIM District-Alpena Event #2</p>
-            <ul>
-                <li>Innovation in Control Award sponsored by Rockwell Automation</li>
-            </ul>
+            <div id="2022">
+                <h4 >2022</h4>
+                <div class="banner">
+                    <img src="/img/first_icon.svg">
+                    <div class="award-name">
+                        <span>Winner</span>
+                    </div>
 
-            <h4>2018</h4>
-            <p>FIM District - Gibraltar Event</p>
-            <ul>
-                <li>Engineering Inspiration Award</li>
-                <li>FIRST Dean's List Semi-Finalist Award - Sanket Nayak</li>
-            </ul>
-            <p>FIM District - East Kentwood Event</p>
-            <ul>
-                <li>Imagery Award in honor of Jack Kamen</li>
-            </ul>
-            <p>Michigan State Championship - DTE Energy Foundation Division</p>
-            <ul>
-                <li>Entrepreneurship Award sponsored by Kleiner Perkins Caufield and Byers</li>
-            </ul>
-            <p>Michigan State Championship</p>
-            <ul>
-                <li>FIRST Dean's List Finalist Award - Sanket Nayak</li>
-            </ul>
-            <p>Einstein Field (Detroit)</p>
-            <ul>
-                <li>FIRST Dean's List Award - Sanket Nayak</li>
-            </ul>
+                    <div class="award-event">
+                        <span>2022 Troy District</span>
+                    </div>
+                </div>
+                <p>FIM District - Troy Event</p>
+                <ul>
+                    <li>Event Winner</li>
+                </ul>
+                <p>FIM District - Lansing Event</p>
+                <ul>
+                    <li>Safety Award</li>
+                </ul>
+                <p>Michigan State Championship</p>
+                <ul>
+                    <li>Qualified</li>
+                </ul>
+            </div>
 
-            <h4>2017</h4>
-            <p>FIM District - Howell Event</p>
-            <ul>
-                <li>Event Winner</li>
-            </ul>
+            <div id="2019">
+                <h4>2019</h4>
+                <p>FIM District-Alpena Event #2</p>
+                <ul>
+                    <li>Innovation in Control Award sponsored by Rockwell Automation</li>
+                </ul>
+            </div>
 
-            <h4>2016</h4>
-            <p>FIM District - Kettering University Event #1</p>
-            <ul>
-                <li>Quality Award sponsored by Motorola Solutions Foundation</li>
-            </ul>
-            <p>FIM District - Howell Event</p>
-            ​<ul>
-                <li>Industrial Design Award sponsored by General Motors</li>
-            </ul>
-            
-            <h4>2015</h4>
-            <p>FiM District - Howell Event</p>
-            <ul>
-                <li>Event Winner</li>
-            </ul>
-            <p>FiM District - Center Line Event </p>
-            <ul>
-                <li>Event Finalist</li>
-                <li>Industrial Design Award sponsored by General Motors</li>
-            </ul>
-            <p>FiM in Michigan District Championship</p>
-            <ul>
-                <li>Quality Award sponsored by Motorola Solutions Foundation</li>
-            </ul>
-            
-            <h4>2014</h4>
-            <p>Southfield FIRST Robotics District Competition</p>
-            ​<ul>
-                <li>Creativity Award sponsored by Xerox</li>
-            </ul>
-            <p>Bedford FIRST Robotics District Competiton</p>
-            <ul>
-                <li>Creativity Award sponsored by Xerox</li>
-            </ul>
-            
-            <h4>2013</h4>
-            <p>Waterford FIRST Robotics District Competition</p>
-            <ul>
-                <li>Industrial Design Award sponsored by General Motors</li>
-            </ul>
-            <p>Livonia FIRST Robotics District Competition</p>
-            <ul>
-                <li>Excellence in Engineering Award sponsored by Delphi</li>
-            </ul>
+            <div id="2018">
+                <h4>2018</h4>
+                <p>FIM District - Gibraltar Event</p>
+                <ul>
+                    <li>Engineering Inspiration Award</li>
+                    <li>FIRST Dean's List Semi-Finalist Award - Sanket Nayak</li>
+                </ul>
+                <p>FIM District - East Kentwood Event</p>
+                <ul>
+                    <li>Imagery Award in honor of Jack Kamen</li>
+                </ul>
+                <p>Michigan State Championship - DTE Energy Foundation Division</p>
+                <ul>
+                    <li>Entrepreneurship Award sponsored by Kleiner Perkins Caufield and Byers</li>
+                </ul>
+                <p>Michigan State Championship</p>
+                <ul>
+                    <li>FIRST Dean's List Finalist Award - Sanket Nayak</li>
+                </ul>
+                <p>Einstein Field (Detroit)</p>
+                <ul>
+                    <li>FIRST Dean's List Award - Sanket Nayak</li>
+                </ul>
+            </div>
 
-            <h4>2012</h4>
-            <p>Waterford FIRST Robotics District Competition</p>
-            <ul>
-                <li>Rookie All Star Award</li>
-            </ul>
+            <div id="2017">
+                <h4>2017</h4>
+                <div class="banner">
+                    <img src="https://www.thebluealliance.com/images/first_icon.svg">
+                    <div class="award-name">
+                        <span>Winner</span>
+                    </div>
+
+                    <div class="award-event">
+                        <span>2017 HOWELL DISTRICT</span>
+                    </div>
+                </div>
+                <p>FIM District - Howell Event</p>
+                <ul>
+                    <li>Event Winner</li>
+                </ul>
+            </div>
+
+           <div id="2016">
+               <h4>2016</h4>
+               <div class="banner">
+                   <img src="https://www.thebluealliance.com/images/first_icon.svg">
+                   <div class="award-name">
+                       <span>Winner</span>
+                   </div>
+
+                   <div class="award-event">
+                       <span>2016 KETTERING UNIVERSITY DISTRICT</span>
+                   </div>
+               </div>
+               <p>FIM District - Kettering University Event #1</p>
+               <ul>
+                   <li>Quality Award sponsored by Motorola Solutions Foundation</li>
+               </ul>
+               <p>FIM District - Howell Event</p>
+               <ul>
+                   <li>Industrial Design Award sponsored by General Motors</li>
+               </ul>
+           </div>
+
+            <div id="2015">
+                <h4>2015</h4>
+                <div class="banner">
+                    <img src="https://www.thebluealliance.com/images/first_icon.svg">
+                    <div class="award-name">
+                        <span>Winner</span>
+                    </div>
+
+                    <div class="award-event">
+                        <span>2015 HOWELL DISTRICT</span>
+                    </div>
+                </div>
+                <p>FiM District - Howell Event</p>
+                <ul>
+                    <li>Event Winner</li>
+                </ul>
+                <p>FiM District - Center Line Event </p>
+                <ul>
+                    <li>Event Finalist</li>
+                    <li>Industrial Design Award sponsored by General Motors</li>
+                </ul>
+                <p>FiM in Michigan District Championship</p>
+                <ul>
+                    <li>Quality Award sponsored by Motorola Solutions Foundation</li>
+                </ul>
+            </div>
+
+           <div id="2014">
+               <h4>2014</h4>
+               <p>Southfield FIRST Robotics District Competition</p>
+               <ul>
+                   <li>Creativity Award sponsored by Xerox</li>
+               </ul>
+               <p>Bedford FIRST Robotics District Competiton</p>
+               <ul>
+                   <li>Creativity Award sponsored by Xerox</li>
+               </ul>
+           </div>
+
+            <div id="2013">
+                <h4>2013</h4>
+                <p>Waterford FIRST Robotics District Competition</p>
+                <ul>
+                    <li>Industrial Design Award sponsored by General Motors</li>
+                </ul>
+                <p>Livonia FIRST Robotics District Competition</p>
+                <ul>
+                    <li>Excellence in Engineering Award sponsored by Delphi</li>
+                </ul>
+            </div>
+
+            <div id="2012">
+                <h4>2012</h4>
+                <p>Waterford FIRST Robotics District Competition</p>
+                <ul>
+                    <li>Rookie All Star Award</li>
+                </ul>
+            </div>
         </div>
     </main>
 
+<script>
+    let id = window.location.href
+    let tableOfContents = document.getElementById("table-of-contents")
+
+    for (var i = 0; i < tableOfContents.children.length; i++) {
+        let item = tableOfContents.children.item(i)
+
+        if (item.children.item(0).href === "#"+id) {
+            item.children.item(0).style += `color: #c62828;`
+        }
+    }
+</script>
 </body>
 
 </html>
