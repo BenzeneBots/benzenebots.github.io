@@ -1,4 +1,4 @@
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 
 <head>
     <title>Benzene Bots | Contact Us</title>
@@ -56,6 +56,17 @@
         width: 100%
     }
 
+    .form-center {
+        position: relative;
+       left: 25%;
+    }
+
+    @media only screen and (min-width: 993px) {
+        .row .col.l6 {
+            margin-left: 25%;
+        }
+    }
+
 </style>
 <body>
 <nav>
@@ -68,175 +79,55 @@
 
 <main>
     <section>
-        <div class="row" style="width: 50%">
-            <h2 style="text-align: center;" class="red-text text-darken-3">Scouting</h2>
-            <p style="text-align: center;">Rapid React 2022</p>
-            <form class="col s12">
+        <div class="row">
+            <h2 style="text-align: center;" class="red-text text-darken-3">Contact Us</h2>
+            <form  class="col s12 m12 l6" style="">
 
-                <div id="team_number_disp" class="row grey darken-4 backgroundBox">
-                    <h5>Team Number</h5>
-                    <a id="team_number_error" style="color: red"></a>
+                <div id="Name_Disp" class="row grey darken-4 backgroundBox">
+                    <h5>Name</h5>
+                    <a id="name_error" style="color: red"></a>
                     <div class="input-field col s6">
-                        <input id="team_number" type="text">
-                        <label for="team_number">Team Number</label>
+                        <input id="name" type="text">
+                        <label for="name">Your name</label>
                     </div>
                 </div>
 
-                <div id="scouter_name_disp" class="row grey darken-4 backgroundBox">
-                    <h5>Scouter Name</h5>
-                    <a id="scouter_name_error" style="color: red"></a>
+                <div id="Email_Disp" class="row grey darken-4 backgroundBox">
+                    <h5>Email</h5>
+                    <a id="email_error" style="color: red"></a>
                     <div class="input-field col s6">
-                        <input id="scouter_name" type="text">
-                        <label for="scouter_name">Scouter</label>
+                        <input id="email" type="email">
+                        <label for="email">Your email</label>
                     </div>
                 </div>
 
-                <div id="drive_train_disp" class="row grey darken-4 backgroundBox">
-                    <h5>What is your robot's drive train/drive system</h5>
-                    <a id="drive_train_error" style="color: red"></a>
-                    <label>
-                        <input class="red" name="driveTrain" type="radio"/>
-                        <span>Swerve Drive</span>
-                    </label>
-                    <label>
-                        <input name="driveTrain" type="radio"/>
-                        <span>Tank Drive</span>
-                    </label>
-                    <label>
-                        <input name="driveTrain" type="radio"/>
-                        <span>Mecanum Drive</span>
-                    </label>
-                    <label>
-                        <input name="driveTrain" type="radio"/>
-                        <span>Robot is only a chassi</span>
-                    </label>
-                </div>
-
-                <div id="auton_disp" class="row grey darken-4 backgroundBox">
-                    <h5>What does your robot do during the autonomous period?</h5>
-                    <a id="auton_error" style="color: red"></a>
-                    <div class="input-field col s6">
-                        <input id="AutonAnswer" type="text">
-                        <label for="AutonAnswer">Your Answer</label>
+                <div id="message_disp" class="row grey darken-4 backgroundBox">
+                    <h5>Message</h5>
+                    <a id="message_error" style="color: red"></a>
+                    <div class="input-field col s11">
+                        <textarea id="message"  class="materialize-textarea" data-length="256" maxlength="256"></textarea>
+                        <label for="message">Your Message</label>
                     </div>
-                </div>
-
-                <div id="shooting_hub_disp" class="row grey darken-4 backgroundBox">
-                    <h5>What part of the hub does your robot shoot on?</h5>
-                    <a id="shooting_hub_error" style="color: red"></a>
-                    <label>
-                        <input class="red" name="shootingHub" type="radio"/>
-                        <span>Upper Hub</span>
-                    </label>
-                    <label>
-                        <input name="shootingHub" type="radio"/>
-                        <span>Lower Hub</span>
-                    </label>
-                    <label>
-                        <input name="shootingHub" type="radio"/>
-                        <span>Both</span>
-                    </label>
-                </div>
-
-                <div id="shots_disp" class="row grey darken-4 backgroundBox">
-                    <h5>How many shots does your robot take during Tele-op period? How many does your robot make?</h5>
-                    <a id="shots_error" style="color: red"></a>
-                    <div class="input-field col s6">
-                        <input id="ShotsAnswer" type="text">
-                        <label for="ShotsAnswer">Your Answer</label>
-                    </div>
-                </div>
-
-                <div id="driving_rating_disp" class="row grey darken-4 backgroundBox">
-                    <h5>Rate the driver :</h5>
-                    <a id="driving_rating_error" style="color: red"></a>
-                    <label>
-                        <input class="red" name="driver-rating" type="radio"/>
-                        <span class="radioE">1 (being complete garbage)</span>
-                    </label>
-                    <label>
-                        <input name="driver-rating" type="radio"/>
-                        <span class="radioE">2 (being bad)</span>
-                    </label>
-                    <label>
-                        <input name="driver-rating" type="radio"/>
-                        <span class="radioE">3 (being ok)</span>
-                    </label>
-                    <label>
-                        <input name="driver-rating" type="radio"/>
-                        <span class="radioE">4 (being good)</span>
-                    </label>
-                    <label>
-                        <input name="driver-rating" type="radio"/>
-                        <span class="radioE">5 (being extremely good)</span>
-                    </label>
-                </div>
-
-                <div id="robot_type_disp" class="row grey darken-4 backgroundBox">
-                    <h5>Is your driver offensive or defensive?</h5>
-                    <a id="robot_type_error" style="color: red"></a>
-                    <label>
-                        <input class="red" name="robot-type" type="radio"/>
-                        <span class="radioE">Offensive</span>
-                    </label>
-                    <label>
-                        <input name="robot-type" type="radio"/>
-                        <span class="radioE">Defensive</span>
-                    </label>
-                    <label>
-                        <input name="robot-type" type="radio"/>
-                        <span class="radioE">Both</span>
-                    </label>
-                </div>
-
-                <div id="climb_disp" class="row grey darken-4 backgroundBox">
-                    <h5>During endgame does the robot climb?</h5>
-                    <a id="climb_error" style="color: red"></a>
-                    <label>
-                        <input class="red" name="isClimb" type="radio"/>
-                        <span class="radioE">Yes</span>
-                    </label>
-                    <label>
-                        <input name="isClimb" type="radio"/>
-                        <span class="radioE">No</span>
-                    </label>
-                </div>
-
-                <div id="climb_bar_disp" class="row grey darken-4 backgroundBox">
-                    <h5>If the robot can climb, until which bar can it climb till?</h5>
-                    <a id="climb_bar_error" style="color: red"></a>
-                    <label>
-                        <input class="red" name="climb_bar" type="radio"/>
-                        <span class="radioE">1st Bar (Low)</span>
-                    </label>
-                    <label>
-                        <input name="climb_bar" type="radio"/>
-                        <span class="radioE">2nd Bar (Mid)</span>
-                    </label>
-                    <label>
-                        <input class="red" name="climb_bar" type="radio"/>
-                        <span class="radioE">3rd Bar (High)</span>
-                    </label>
-                    <label>
-                        <input name="climb_bar" type="radio"/>
-                        <span class="radioE">4th Bar (Traversal)</span>
-                    </label>
                 </div>
 
                 <div class="row">
                     <div class="col s12" style="margin-bottom: 10px">
-                        <a onclick="submit_form()" id="submit" class="waves-effect waves-dark btn red darken-3">Save</a>
+                        <a onclick="submit_form()" id="submit" class="waves-effect waves-dark btn red darken-3">Send</a>
                     </div>
                 </div>
             </form>
         </div>
     </section>
 </main>
-<script src="form.js"></script>
+
+<script src="/contact/form.js"></script>
 <script>
-    if (!localStorage.getItem("scout")) {
-        window.location.href = "/scout/index.html"
-    }
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(function () {
+            var textNeedCount = document.getElementById("message");
+            new M.CharacterCounter(textNeedCount);
+        }, 2000)
+    })
 </script>
 </body>
 
